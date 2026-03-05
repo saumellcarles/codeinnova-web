@@ -1,4 +1,4 @@
-app_name: codeinnova-web               # Nombre de tu aplicación
+app_name: app              # Nombre de tu aplicación
 app_dir: ./                   # Carpeta raíz donde está package.json
 build:
   command: "npm install && npm run build"  # Instala dependencias y construye la app
