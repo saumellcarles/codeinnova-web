@@ -1,11 +1,11 @@
 app_name: app              # Nombre de tu aplicación
 app_dir: ./                   # Carpeta raíz donde está package.json
 build:
-  command: "npm install && npm run build"  # Instala dependencias y construye la app
+  command: "pnpm install && pnpm build"  # Instala dependencias y construye la app
   env:
     NODE_ENV: production      # Variable de entorno para producción
 deploy:
-  command: "npm start"        # Comando para iniciar la app
+  command: "pnpm start"        # Comando para iniciar la app
 domain:
   - codeinnova.es
   - www.codeinnova.es
