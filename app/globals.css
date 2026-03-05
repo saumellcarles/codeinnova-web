@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #0f172a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Inter", "Segoe UI", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ─── Marquee / ticker ─────────────────────────────── */
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee-left 22s linear infinite;
+  will-change: transform;
+}
+.marquee-track-fast {
+  animation: marquee-left 14s linear infinite;
+}
+.marquee-track-slow {
+  animation: marquee-left 36s linear infinite;
+}
+
+/* ─── Dot grid texture ──────────────────────────────── */
+.bg-dot-grid {
+  background-image: radial-gradient(circle, #c7d2fe 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* ─── Fine mesh grid ────────────────────────────────── */
+.bg-mesh-grid {
+  background-image:
+    linear-gradient(to right, #e0e7ff 1px, transparent 1px),
+    linear-gradient(to bottom, #e0e7ff 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ─── Container marketing ───────────────────────────── */
+.container-marketing {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 72rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
