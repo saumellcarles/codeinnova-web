@@ -1,9 +1,10 @@
 app_name: app              # Nombre de tu aplicación
 app_dir: ./                   # Carpeta raíz donde está package.json
 build:
-  command: "pnpm install && pnpm run build"  # Instala dependencias y construye la app
-  env:
-    NODE_ENV: production      # Variable de entorno para producción
+  image: node:20.11  # <- Cambia la versión a 20 o superior
+  commands:
+    - pnpm install
+    - pnpm build
 deploy:
   command: "pnpm start"        # Comando para iniciar la app
 domain:
