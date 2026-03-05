@@ -10,7 +10,7 @@ WORKDIR /app
 # Copiar package.json y lockfile primero (para cache de dependencias)
 COPY package.json pnpm-lock.yaml* ./
 
-# Instalar dependencias
+# Instalar dependencias con pnpm
 RUN pnpm install
 
 # Copiar el resto de la app
@@ -22,17 +22,16 @@ RUN pnpm run build
 # Etapa 2: Producción
 FROM node:20-alpine AS runner
 
-# Crear directorio de la app
 WORKDIR /app
 
-# Copiar dependencias y build desde builder
-COPY --from=builder /app/node_modules ./node_modules
+# Copiar solo lo necesario
 COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/package.json ./package.json
 
-# Exponer puerto (Next.js por defecto)
+# Exponer puerto
 EXPOSE 3000
 
-# Comando para iniciar la app en producción
+# Comando para producción
 CMD ["pnpm", "run", "start"]
