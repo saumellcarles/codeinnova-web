@@ -1,12 +1,15 @@
-app_name: app              # Nombre de tu aplicación
-app_dir: ./                   # Carpeta raíz donde está package.json
+app_name: app
+app_dir: ./
 build:
-  image: node:20.11  # <- Cambia la versión a 20 o superior
+  image: node:20.11
+  cache:
+    - path: ./node_modules
+    - path: ./.next/cache
   commands:
-    - pnpm install
+    - pnpm install --frozen-lockfile
     - pnpm build
 deploy:
-  command: "pnpm start"        # Comando para iniciar la app
+  command: "pnpm start"
 domain:
   - codeinnova.es
   - www.codeinnova.es
