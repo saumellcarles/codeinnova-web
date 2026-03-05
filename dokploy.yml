@@ -1,24 +1,11 @@
-# dokploy.yaml - Configuración completa para Dokploy
 app_name: codeinnova-web               # Nombre de tu aplicación
-app_dir: ./                             # Carpeta raíz donde está package.json
-
-# Configuración de build
+app_dir: ./                   # Carpeta raíz donde está package.json
 build:
   command: "npm install && npm run build"  # Instala dependencias y construye la app
   env:
-    NODE_ENV: production                  # Variable de entorno para producción
-
-# Configuración de despliegue
+    NODE_ENV: production      # Variable de entorno para producción
 deploy:
-  command: "npm start"                     # Comando para iniciar la app
-
-# Dominio personalizado
+  command: "npm start"        # Comando para iniciar la app
 domain:
   - codeinnova.es
   - www.codeinnova.es
-
-
-# Opciones de SSL/HTTPS (Let’s Encrypt)
-ssl:
-  enabled: true
-  provider: letsencrypt
