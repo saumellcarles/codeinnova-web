@@ -1,0 +1,8 @@
+app_name: miapp               # Nombre de tu aplicación
+app_dir: ./                   # Carpeta raíz donde está package.json
+build:
+  command: "npm install && npm run build"  # Instala dependencias y construye la app
+  env:
+    NODE_ENV: production      # Variable de entorno para producción
+deploy:
+  command: "npm start"        # Comando para iniciar la app
