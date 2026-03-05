@@ -14,8 +14,13 @@ deploy:
 
 # Dominio personalizado
 domain:
-  - codeinnova.es
-  - www.codeinnova.es
+  - midominio.com
+  - www.midominio.com
+
+# Configuración opcional de puertos (Dokploy usa 80/443 automáticamente)
+ports:
+  http: 80
+  https: 443
 
 
 # Opciones de SSL/HTTPS (Let’s Encrypt)

@@ -14,8 +14,8 @@ deploy:
 
 # Dominio personalizado
 domain:
-  - codeinnova.es
-  - www.codeinnova.es
+  - codeinnova.com
+  - www.midominio.com
 
 
 # Opciones de SSL/HTTPS (Let’s Encrypt)
