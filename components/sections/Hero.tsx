@@ -66,7 +66,10 @@ export function Hero() {
           <span className="bg-gradient-to-r from-blue-400 via-indigo-300 to-orange-400 bg-clip-text text-transparent">
             desarrollo web
           </span>{" "}
-          y software
+          y{" "}
+          <span className="bg-gradient-to-r from-blue-400 via-indigo-300 to-orange-400 bg-clip-text text-transparent">
+            software
+          </span>
         </motion.h1>
 
         <motion.p
