@@ -1,7 +1,7 @@
 app_name: app
 app_dir: ./
 build:
-  command: "pnpm install --omit=dev && pnpm run build"
+  command: "npm_config_production=false pnpm install --frozen-lockfile && pnpm run build"
 deploy:
   command: "pnpm start"
 domain:
