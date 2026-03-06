@@ -5,6 +5,7 @@ import "./globals.css";
 import Script from "next/script";
 import { PageLoader } from "../components/ui/PageLoader";
 import { MotionProvider } from "../components/ui/MotionProvider";
+import { CookieBanner } from "../components/ui/CookieBanner";
 
 const BASE_URL = "https://codeinnova.es";
 
@@ -153,6 +154,7 @@ export default function RootLayout({
           <MotionProvider>
             <PageLoader />
             {children}
+            <CookieBanner />
           </MotionProvider>
         </Theme>
         <Script

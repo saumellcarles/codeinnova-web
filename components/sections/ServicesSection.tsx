@@ -120,10 +120,9 @@ export function ServicesSection() {
                   </div>
                   <Link
                     href={s.href}
-                    aria-label={`Más información sobre ${s.title}`}
                     className="mt-auto inline-flex items-center gap-1 text-xs font-semibold text-slate-400 transition hover:text-white"
                   >
-                    Más información <ArrowRightIcon className="h-3 w-3" />
+                    Más información sobre {s.title} <ArrowRightIcon className="h-3 w-3" />
                   </Link>
                 </article>
               </div>
@@ -151,10 +150,9 @@ export function ServicesSection() {
               </div>
               <Link
                 href={s.href}
-                aria-label={`Más información sobre ${s.title}`}
                 className="mt-auto inline-flex items-center gap-1 text-xs font-semibold text-slate-400 transition hover:text-white"
               >
-                Más información <ArrowRightIcon className="h-3 w-3" />
+                Más información sobre {s.title} <ArrowRightIcon className="h-3 w-3" />
               </Link>
             </m.article>
           ))}
