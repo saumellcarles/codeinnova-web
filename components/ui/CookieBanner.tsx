@@ -41,7 +41,7 @@ export function CookieBanner() {
       role="dialog"
       aria-modal="false"
       aria-label="Aviso de cookies"
-      className="fixed bottom-4 left-4 right-4 z-[250] mx-auto max-w-2xl rounded-2xl border border-gray-200 bg-white px-5 py-4 shadow-2xl shadow-black/10 md:bottom-6 md:left-6 md:right-auto md:max-w-sm"
+      className="fixed bottom-3 left-3 right-3 z-[250] mx-auto max-w-2xl rounded-2xl border border-gray-200 bg-white px-4 py-4 shadow-2xl shadow-black/10 sm:bottom-4 sm:left-4 sm:right-4 sm:px-5 md:bottom-6 md:left-6 md:right-auto md:max-w-sm"
     >
       <p className="text-xs font-semibold text-gray-900 md:text-sm">
         Usamos cookies 🍪

@@ -6,6 +6,7 @@ import { ArrowRightIcon } from "@radix-ui/react-icons";
 import { sectionFadeInUp, sectionHeaderFadeIn, getCardItemFadeIn } from "../../animations/marketingVariants";
 import { SectionLabel } from "../ui/SectionLabel";
 import { SnapCarousel } from "../ui/SnapCarousel";
+import { getServicesSummary } from "../../lib/services-data";
 
 // Iconos SVG inline para los 4 servicios — fondo oscuro, estilo técnico
 const AppIcon = () => (
@@ -29,44 +30,40 @@ const ShopIcon = () => (
   </svg>
 );
 
-const SERVICES = [
-  {
+const ICON_CONFIG: Record<string, { icon: React.ReactNode; iconBg: string; color: string }> = {
+  "aplicaciones-web": {
     icon: <AppIcon />,
     iconBg: "bg-indigo-500/20 text-indigo-300",
-    tag: "01",
-    title: "Aplicaciones web",
-    description: "Ofrecemos un servicio completo de desarrollo de aplicaciones web a medida, diseñado para cubrir todas las etapas del proceso.",
     color: "group-hover:border-indigo-500/60",
-    href: "/servicios/aplicaciones-web",
   },
-  {
+  "sitios-web": {
     icon: <WebIcon />,
     iconBg: "bg-blue-500/20 text-blue-300",
-    tag: "02",
-    title: "Sitios web",
-    description: "Desarrollamos sitios web corporativos optimizados para buscadores y orientados a la captación de clientes.",
     color: "group-hover:border-blue-500/60",
-    href: "/servicios/sitios-web",
   },
-  {
+  "servidores-cloud": {
     icon: <CloudIcon />,
     iconBg: "bg-violet-500/20 text-violet-300",
-    tag: "03",
-    title: "Servidores Cloud",
-    description: "Diseñamos y gestionamos una infraestructura segura, escalable y siempre disponible para crecer con tu negocio.",
     color: "group-hover:border-violet-500/60",
-    href: "/servicios/servidores-cloud",
   },
-  {
+  "e-commerce": {
     icon: <ShopIcon />,
     iconBg: "bg-orange-500/20 text-orange-300",
-    tag: "04",
-    title: "E-commerce",
-    description: "Creamos tiendas online a medida, diseñadas para impulsar el crecimiento de tu negocio.",
     color: "group-hover:border-orange-500/60",
-    href: "/servicios/e-commerce",
   },
-];
+};
+
+function truncateAtWord(text: string, maxLen: number): string {
+  if (text.length <= maxLen) return text;
+  const cut = text.slice(0, maxLen).lastIndexOf(" ");
+  return (cut > 0 ? text.slice(0, cut) : text.slice(0, maxLen)) + "…";
+}
+
+const SERVICES = getServicesSummary().map((s) => ({
+  ...s,
+  ...ICON_CONFIG[s.slug],
+  description: truncateAtWord(s.description, 130),
+}));
 
 // Sección de servicios sobre fondo oscuro (contrasta con la sección About blanca).
 // Tarjetas estilo glassmorphism con hover colored border.

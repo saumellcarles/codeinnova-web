@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { getService } from "../../../lib/services-data";
-import { ServicePageContent } from "../../../components/sections/ServicePageContent";
+import { getService } from "@/lib/services-data";
+import { ServicePageContent } from "@/components/sections/ServicePageContent";
 
 const BASE_URL = "https://codeinnova.es";
 const service = getService("aplicaciones-web")!;

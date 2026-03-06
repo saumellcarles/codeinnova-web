@@ -34,6 +34,7 @@ export function SnapCarousel({ count, variant = "light", children }: SnapCarouse
       <div
         ref={ref}
         className="flex snap-x snap-mandatory overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        style={{ WebkitOverflowScrolling: "touch" } as React.CSSProperties}
       >
         {children}
       </div>

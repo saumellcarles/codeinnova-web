@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { PageLayout } from "../../components/layout/PageLayout";
+import { PageLayout } from "@/components/layout/PageLayout";
 
 export const metadata: Metadata = {
   title: "Política de cookies | Code Innova",
@@ -53,7 +53,7 @@ export default function CookiesPage() {
 
             <h2>Tabla de cookies</h2>
             <div className="mt-4 overflow-x-auto rounded-xl border border-gray-200">
-              <table className="w-full text-xs">
+              <table className="min-w-[480px] w-full text-xs">
                 <thead className="bg-gray-50 text-gray-600">
                   <tr>
                     <th className="px-4 py-3 text-left font-semibold">Nombre</th>

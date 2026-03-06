@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, useEffect, useRef, useContext } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { m, AnimatePresence } from "motion/react";
-import { LoaderContext } from "../../contexts/LoaderContext";
+import { useLoaderContext } from "../../contexts/LoaderContext";
 
 // Rutas de la landing (ancla) — mismo contenido, no mostrar loader
 const LANDING_ROUTES = ["/", "/nosotros", "/servicios", "/metodologia", "/proyectos", "/clientes"];
@@ -12,25 +12,64 @@ const LANDING_ROUTES = ["/", "/nosotros", "/servicios", "/metodologia", "/proyec
 const isLandingRoute = (p: string) => LANDING_ROUTES.includes(p);
 
 // Spinner completo visible en todos los dispositivos.
-// Solo se muestra en cambios de ruta reales — nunca en enlaces ancla ni carga inicial.
+// Se muestra en carga inicial hasta que la página esté lista, y en cambios de ruta reales.
 // En consultoría gratuita: espera a que el calendario cargue.
 export function PageLoader() {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true); // Visible al inicio hasta que cargue
   const pathname = usePathname();
   const prevPathRef = useRef<string | null>(null);
-  const isFirstRender = useRef(true);
-  const loaderCtx = useContext(LoaderContext);
+  const isFirstLoad = useRef(true);
+  const loaderCtx = useLoaderContext();
 
+  // Carga inicial: ocultar cuando document + recursos estén listos (o calendario en consultoría)
+  useEffect(() => {
+    if (!isFirstLoad.current) return;
+
+    const isConsultoria = pathname === "/consultoria-gratuita";
+
+    const hide = () => {
+      isFirstLoad.current = false;
+      setVisible(false);
+    };
+
+    // En consultoría: esperar al calendario, no al window.load
+    if (isConsultoria) return;
+
+    if (document.readyState === "complete") {
+      // Mínimo 400ms para evitar flash si carga muy rápido
+      const t = setTimeout(hide, 400);
+      return () => clearTimeout(t);
+    }
+
+    const onLoad = () => setTimeout(hide, 400);
+    window.addEventListener("load", onLoad, { once: true });
+    return () => window.removeEventListener("load", onLoad);
+  }, [pathname]);
+
+  // Consultoría: ocultar cuando el calendario cargue (carga inicial), o tras 12s por si falla
+  useEffect(() => {
+    if (pathname !== "/consultoria-gratuita" || !isFirstLoad.current) return;
+
+    if (loaderCtx?.calendarLoaded) {
+      isFirstLoad.current = false;
+      const t = setTimeout(() => setVisible(false), 300);
+      return () => clearTimeout(t);
+    }
+
+    const fallback = setTimeout(() => {
+      isFirstLoad.current = false;
+      setVisible(false);
+    }, 12000);
+    return () => clearTimeout(fallback);
+  }, [pathname, loaderCtx?.calendarLoaded]);
+
+  // Navegación entre rutas: mostrar loader en cambios reales (no ancla)
   useEffect(() => {
     const prev = prevPathRef.current;
     prevPathRef.current = pathname ?? "/";
 
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
-      return;
-    }
+    if (isFirstLoad.current) return;
 
-    // No mostrar loader en navegación entre rutas de la landing (ancla)
     if (prev !== null && isLandingRoute(prev) && isLandingRoute(pathname ?? "/")) {
       return;
     }
@@ -38,9 +77,9 @@ export function PageLoader() {
     setVisible(true);
   }, [pathname]);
 
-  // Ocultar loader: tras 700ms O cuando calendario cargue (solo en consultoría)
+  // Ocultar loader en navegaciones: tras 700ms O cuando calendario cargue (consultoría)
   useEffect(() => {
-    if (!visible) return;
+    if (!visible || isFirstLoad.current) return;
 
     const isConsultoria = pathname === "/consultoria-gratuita";
 
@@ -49,7 +88,6 @@ export function PageLoader() {
       return () => clearTimeout(t);
     }
 
-    // En consultoría: esperar a que el calendario cargue (máx 12s por si falla)
     if (loaderCtx?.calendarLoaded) {
       const t = setTimeout(() => setVisible(false), 300);
       return () => clearTimeout(t);

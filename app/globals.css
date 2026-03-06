@@ -41,25 +41,3 @@ html {
   will-change: transform;
 }
 
-/* ─── Dot grid texture ──────────────────────────────── */
-.bg-dot-grid {
-  background-image: radial-gradient(circle, #c7d2fe 1px, transparent 1px);
-  background-size: 22px 22px;
-}
-
-/* ─── Fine mesh grid ────────────────────────────────── */
-.bg-mesh-grid {
-  background-image:
-    linear-gradient(to right, #e0e7ff 1px, transparent 1px),
-    linear-gradient(to bottom, #e0e7ff 1px, transparent 1px);
-  background-size: 40px 40px;
-}
-
-/* ─── Container marketing ───────────────────────────── */
-.container-marketing {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 72rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-}

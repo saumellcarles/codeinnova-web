@@ -1,11 +1,11 @@
 "use client";
 
 import Cal, { getCalApi } from "@calcom/embed-react";
-import { useEffect, useContext } from "react";
-import { LoaderContext } from "../../contexts/LoaderContext";
+import { useEffect } from "react";
+import { useLoaderContext } from "../../contexts/LoaderContext";
 
 export function CalEmbed() {
-  const loaderCtx = useContext(LoaderContext);
+  const loaderCtx = useLoaderContext();
 
   useEffect(() => {
     (async function () {
@@ -24,7 +24,7 @@ export function CalEmbed() {
       calOrigin="https://cal.eu"
       embedJsUrl="https://cal.eu/embed/embed.js"
       calLink="codeinnova/consutoria-gratuita"
-      style={{ width: "100%", height: "100%", overflow: "scroll" }}
+      style={{ width: "100%", height: "100%", overflow: "auto", minWidth: 0 }}
       config={{ layout: "month_view", useSlotsViewOnSmallScreen: "true" }}
     />
   );

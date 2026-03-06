@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { SERVICES } from "../lib/services-data";
+import { SERVICES } from "@/lib/services-data";
 
 const BASE_URL = "https://codeinnova.es";
 

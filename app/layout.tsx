@@ -3,10 +3,10 @@ import { Theme } from "@radix-ui/themes";
 import "@radix-ui/themes/styles.css";
 import "./globals.css";
 import Script from "next/script";
-import { PageLoader } from "../components/ui/PageLoader";
-import { MotionProvider } from "../components/ui/MotionProvider";
-import { CookieBanner } from "../components/ui/CookieBanner";
-import { LoaderProvider } from "../contexts/LoaderContext";
+import { PageLoader } from "@/components/ui/PageLoader";
+import { MotionProvider } from "@/components/ui/MotionProvider";
+import { CookieBanner } from "@/components/ui/CookieBanner";
+import { LoaderProvider } from "@/contexts/LoaderContext";
 
 const BASE_URL = "https://codeinnova.es";
 

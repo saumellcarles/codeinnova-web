@@ -265,3 +265,14 @@ export const SERVICES: ServiceData[] = [
 export function getService(slug: string): ServiceData | undefined {
   return SERVICES.find((s) => s.slug === slug);
 }
+
+/** Resumen de servicios para la landing y menús. Orden: aplicaciones, sitios, e-commerce, cloud. */
+export function getServicesSummary() {
+  return SERVICES.map((s, i) => ({
+    slug: s.slug,
+    title: s.title,
+    description: s.description,
+    tag: String(i + 1).padStart(2, "0"),
+    href: `/servicios/${s.slug}`,
+  }));
+}

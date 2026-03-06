@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { PageLayout } from "../../components/layout/PageLayout";
-import { SectionLabel } from "../../components/ui/SectionLabel";
-import { CalEmbed } from "../../components/contact/CalEmbed";
+import { PageLayout } from "@/components/layout/PageLayout";
+import { SectionLabel } from "@/components/ui/SectionLabel";
+import { CalEmbed } from "@/components/contact/CalEmbed";
 import { CheckIcon, EnvelopeClosedIcon } from "@radix-ui/react-icons";
 
 const BASE_URL = "https://codeinnova.es";

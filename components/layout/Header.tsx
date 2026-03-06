@@ -352,7 +352,7 @@ export function Header() {
             />
             <m.div
               key="mobile-panel"
-              className="fixed inset-x-4 top-[76px] z-50 overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-2xl shadow-black/15 md:hidden"
+              className="fixed left-3 right-3 top-[76px] z-50 overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-2xl shadow-black/15 sm:left-4 sm:right-4 md:hidden"
               initial={{ opacity: 0, y: -6, scale: 0.97 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -6, scale: 0.97 }}
