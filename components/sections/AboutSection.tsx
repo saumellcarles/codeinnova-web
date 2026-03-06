@@ -49,10 +49,10 @@ export function AboutSection() {
       <div className="mx-auto max-w-6xl px-6 md:px-6">
         {/* Section label — estilo // como en codeinnova.com */}
         <m.p
-          className="font-mono text-xs font-semibold uppercase text-orange-500"
+          className="font-mono text-xs font-semibold uppercase text-gray-900"
           {...sectionHeaderFadeIn}
         >
-          <span className="text-indigo-500">// </span>Sobre nosotros
+          <span className="text-gray-600">// </span>Sobre nosotros
         </m.p>
 
         <div className="mt-8 grid gap-12 md:grid-cols-2 md:items-start md:gap-16">

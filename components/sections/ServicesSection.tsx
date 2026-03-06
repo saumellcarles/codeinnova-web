@@ -84,7 +84,7 @@ export function ServicesSection() {
 
       <div className="relative mx-auto max-w-6xl px-6">
         {/* Section label */}
-        <m.p className="font-mono text-xs font-semibold uppercase text-orange-500" {...sectionHeaderFadeIn}>
+        <m.p className="font-mono text-xs font-semibold uppercase text-white" {...sectionHeaderFadeIn}>
           <span className="text-orange-400">// </span>NUESTROS SERVICIOS
         </m.p>
 

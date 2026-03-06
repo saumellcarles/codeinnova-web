@@ -140,7 +140,18 @@ export function Header() {
         >
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link href="/" className="shrink-0">
+            <Link
+              href="/"
+              className="shrink-0"
+              onClick={(e) => {
+                if (pathname === "/") {
+                  e.preventDefault();
+                  setMobileOpen(false);
+                  document.getElementById("inicio")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                  history.pushState(null, "", "/");
+                }
+              }}
+            >
               <Image
                 src={isLight ? "/logo.png" : "/logo-white.png"}
                 alt="Code Innova"
