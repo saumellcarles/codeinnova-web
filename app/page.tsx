@@ -23,9 +23,9 @@ const PortfolioSection = dynamic(
 const BASE_URL = "https://codeinnova.es";
 
 export const metadata: Metadata = {
-  title: "Especialistas en desarrollo web y software a medida en Tarragona",
+  title: "CodeInnova | Especialistas en desarrollo web y software a medida en Tarragona",
   description:
-    "Code Innova, especialistas en desarrollo web y software a medida en Tarragona. Creamos aplicaciones web, tiendas online, SaaS y soluciones cloud. +10 años de experiencia. Consultoría gratuita.",
+    "Code Innova, especialistas en desarrollo web y software a medida en Tarragona. Creamos aplicaciones web, sitios web, tiendas online, SaaS y soluciones cloud. +10 años de experiencia. Consultoría gratuita.",
   alternates: {
     canonical: BASE_URL,
   },
