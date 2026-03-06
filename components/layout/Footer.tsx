@@ -101,25 +101,28 @@ export function Footer() {
             </ul>
             <div className="mt-4 flex gap-3 text-xs">
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/company/codeinnova"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Code Innova en LinkedIn"
                 className="transition hover:text-gray-200"
               >
                 LinkedIn
               </a>
               <a
-                href="https://github.com"
+                href="https://github.com/codeinnova"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Code Innova en GitHub"
                 className="transition hover:text-gray-200"
               >
                 GitHub
               </a>
               <a
-                href="https://x.com"
+                href="https://x.com/codeinnova"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Code Innova en X (Twitter)"
                 className="transition hover:text-gray-200"
               >
                 X

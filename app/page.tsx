@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import { PageLayout } from "../components/layout/PageLayout";
 import { Hero } from "../components/sections/Hero";
 import { MarqueeSection } from "../components/sections/MarqueeSection";
@@ -6,11 +7,15 @@ import { AboutSection } from "../components/sections/AboutSection";
 import { ServicesSection } from "../components/sections/ServicesSection";
 import { ProcessSection } from "../components/sections/ProcessSection";
 import { TestimonialsSection } from "../components/sections/TestimonialsSection";
-import { PortfolioSection } from "../components/sections/PortfolioSection";
 import { FinalCtaSection } from "../components/sections/FinalCtaSection";
 import { SectionScroller } from "../components/ui/SectionScroller";
 
-const BASE_URL = "https://codeinnova.com";
+const PortfolioSection = dynamic(
+  () => import("../components/sections/PortfolioSection").then((m) => ({ default: m.PortfolioSection })),
+  { ssr: true }
+);
+
+const BASE_URL = "https://codeinnova.es";
 
 export const metadata: Metadata = {
   title: "Agencia de desarrollo web y software a medida en Tarragona | Code Innova",
@@ -24,6 +29,7 @@ export const metadata: Metadata = {
     title: "Code Innova | Desarrollo web y software a medida en Tarragona",
     description:
       "Agencia especializada en desarrollo web, software a medida, e-commerce y servidores cloud. Más de 10 años acelerando negocios digitales desde Tarragona.",
+    images: [{ url: `${BASE_URL}/og-image.png`, width: 1200, height: 630, alt: "Code Innova — Agencia de desarrollo web en Tarragona" }],
   },
 };
 

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { getService } from "../../../lib/services-data";
 import { ServicePageContent } from "../../../components/sections/ServicePageContent";
 
-const BASE_URL = "https://codeinnova.com";
+const BASE_URL = "https://codeinnova.es";
 const service = getService("sitios-web")!;
 const url = `${BASE_URL}/servicios/${service.slug}`;
 
@@ -11,7 +11,12 @@ export const metadata: Metadata = {
   description: service.seoDescription,
   keywords: service.keywords,
   alternates: { canonical: url },
-  openGraph: { url, title: service.seoTitle, description: service.seoDescription },
+  openGraph: {
+    url,
+    title: service.seoTitle,
+    description: service.seoDescription,
+    images: [{ url: `${BASE_URL}/og-image.png`, width: 1200, height: 630, alt: `${service.seoTitle} — Code Innova` }],
+  },
 };
 
 const serviceSchema = {

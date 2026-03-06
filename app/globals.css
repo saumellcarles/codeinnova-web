@@ -34,9 +34,11 @@ html {
 }
 .marquee-track-fast {
   animation: marquee-left 14s linear infinite;
+  will-change: transform;
 }
 .marquee-track-slow {
   animation: marquee-left 36s linear infinite;
+  will-change: transform;
 }
 
 /* ─── Dot grid texture ──────────────────────────────── */

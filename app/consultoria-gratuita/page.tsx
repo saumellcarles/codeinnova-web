@@ -3,7 +3,7 @@ import { PageLayout } from "../../components/layout/PageLayout";
 import { CalEmbed } from "../../components/contact/CalEmbed";
 import { CheckIcon, EnvelopeClosedIcon } from "@radix-ui/react-icons";
 
-const BASE_URL = "https://codeinnova.com";
+const BASE_URL = "https://codeinnova.es";
 const PAGE_URL = `${BASE_URL}/consultoria-gratuita`;
 
 export const metadata: Metadata = {
@@ -25,6 +25,7 @@ export const metadata: Metadata = {
     title: "Consultoría gratuita de desarrollo web | Code Innova",
     description:
       "Reserva tu consultoría gratuita. En 30 minutos analizamos tu proyecto y te damos una hoja de ruta clara. Sin compromiso.",
+    images: [{ url: `${BASE_URL}/og-image.png`, width: 1200, height: 630, alt: "Consultoría gratuita — Code Innova" }],
   },
 };
 

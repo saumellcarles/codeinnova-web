@@ -5,7 +5,7 @@ import "./globals.css";
 import Script from "next/script";
 import { PageLoader } from "../components/ui/PageLoader";
 
-const BASE_URL = "https://codeinnova.com";
+const BASE_URL = "https://codeinnova.es";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
@@ -68,6 +68,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@codeinnova",
     title: "Code Innova | Desarrollo web y software a medida en Tarragona",
     description:
       "Agencia de desarrollo web y software a medida en Tarragona. +10 años creando soluciones digitales escalables.",
@@ -75,7 +76,10 @@ export const metadata: Metadata = {
     creator: "@codeinnova",
   },
   verification: {
-    google: "", // añade tu Google Search Console verification token aquí
+    google: "",
+  },
+  other: {
+    "theme-color": "#ffffff",
   },
 };
 
@@ -124,6 +128,10 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
+        <link rel="preconnect" href="https://code.tidio.co" />
+        <link rel="dns-prefetch" href="https://code.tidio.co" />
+        <link rel="preconnect" href="https://cal.eu" />
+        <link rel="dns-prefetch" href="https://cal.eu" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
@@ -134,13 +142,19 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-white text-slate-900 antialiased">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[300] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-gray-900 focus:shadow-lg"
+        >
+          Saltar al contenido principal
+        </a>
         <Theme appearance="light" accentColor="indigo" radius="large" scaling="100%">
           <PageLoader />
           {children}
         </Theme>
         <Script
           src="//code.tidio.co/pfkcjjg4h0abuxcb95ahb4hsuigjulv2.js"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
       </body>
     </html>

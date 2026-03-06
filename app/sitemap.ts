@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SERVICES } from "../lib/services-data";
 
-const BASE_URL = "https://codeinnova.com";
+const BASE_URL = "https://codeinnova.es";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const serviceUrls: MetadataRoute.Sitemap = SERVICES.map((s) => ({
