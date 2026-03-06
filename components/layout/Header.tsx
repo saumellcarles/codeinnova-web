@@ -191,7 +191,7 @@ export function Header() {
             >
               <Image
                 src={isLight ? "/logo.png" : "/logo-white.png"}
-                alt="Code Innova"
+                alt="CodeInnova"
                 width={200}
                 height={44}
                 className="h-6 w-auto transition-opacity duration-300 md:h-7"

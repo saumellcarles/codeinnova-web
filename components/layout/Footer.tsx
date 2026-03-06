@@ -10,10 +10,10 @@ export function Footer() {
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
-            <Link href="/" aria-label="Code Innova — ir al inicio">
+            <Link href="/" aria-label="CodeInnova — ir al inicio">
               <Image
                 src="/logo-white.png"
-                alt="Code Innova"
+                alt="CodeInnova"
                 width={140}
                 height={24}
                 className="h-6 w-auto"
@@ -104,7 +104,7 @@ export function Footer() {
                 href="https://www.linkedin.com/company/codeinnova"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Code Innova en LinkedIn"
+                aria-label="CodeInnova en LinkedIn"
                 className="transition hover:text-gray-200"
               >
                 LinkedIn
@@ -113,7 +113,7 @@ export function Footer() {
                 href="https://github.com/codeinnova"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Code Innova en GitHub"
+                aria-label="CodeInnova en GitHub"
                 className="transition hover:text-gray-200"
               >
                 GitHub
@@ -136,10 +136,10 @@ export function Footer() {
       <div className="border-t border-gray-800">
         <div className="mx-auto flex max-w-6xl flex-col gap-1 px-6 py-4 text-[11px] text-gray-600 md:flex-row md:items-center md:justify-between">
           <p>
-            © {new Date().getFullYear()} Code Innova. Todos los derechos
+            © {new Date().getFullYear()} CodeInnova. Todos los derechos
             reservados.
           </p>
-          <p>Especialistas en desarrollo web y software en Tarragona</p>
+          <p>Especialistas en desarrollo web y software a medida en Tarragona</p>
         </div>
       </div>
     </footer>

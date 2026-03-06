@@ -23,7 +23,7 @@ const PortfolioSection = dynamic(
 const BASE_URL = "https://codeinnova.es";
 
 export const metadata: Metadata = {
-  title: "Especialistas en desarrollo web y software a medida en Tarragona | Code Innova",
+  title: "Especialistas en desarrollo web y software a medida en Tarragona",
   description:
     "Code Innova, especialistas en desarrollo web y software a medida en Tarragona. Creamos aplicaciones web, tiendas online, SaaS y soluciones cloud. +10 años de experiencia. Consultoría gratuita.",
   alternates: {
@@ -31,10 +31,10 @@ export const metadata: Metadata = {
   },
   openGraph: {
     url: BASE_URL,
-    title: "Code Innova | Desarrollo web y software a medida en Tarragona",
+    title: "CodeInnova | Especialistas en desarrollo web y software a medida en Tarragona",
     description:
       "Especialistas en desarrollo web, software a medida, e-commerce y servidores cloud. Más de 10 años acelerando negocios digitales desde Tarragona.",
-    images: [{ url: `${BASE_URL}/og-image.png`, width: 1200, height: 630, alt: "Code Innova — Especialistas en desarrollo web en Tarragona" }],
+    images: [{ url: `${BASE_URL}/og-image.png`, width: 1200, height: 630, alt: "CodeInnova | Especialistas en desarrollo web y software a medida en Tarragona" }],
   },
 };
 

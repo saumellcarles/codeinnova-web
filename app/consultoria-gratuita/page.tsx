@@ -3,47 +3,9 @@ import { PageLayout } from "@/components/layout/PageLayout";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { CalEmbed } from "@/components/contact/CalEmbed";
 import { CheckIcon, EnvelopeClosedIcon } from "@radix-ui/react-icons";
+import { buildConsultoriaMetadata, buildConsultoriaSchema } from "@/lib/seo";
 
-const BASE_URL = "https://codeinnova.es";
-const PAGE_URL = `${BASE_URL}/consultoria-gratuita`;
-
-export const metadata: Metadata = {
-  title: "Consultoría gratuita de desarrollo web | Code Innova Tarragona",
-  description:
-    "Reserva tu consultoría gratuita con Code Innova. En 30 minutos analizamos tu proyecto de desarrollo web o software y te damos una hoja de ruta clara. Sin compromiso.",
-  keywords: [
-    "consultoría gratuita desarrollo web",
-    "contacto especialistas web Tarragona",
-    "presupuesto desarrollo software",
-    "consultoría tecnológica gratis",
-    "especialistas desarrollo web Tarragona contacto",
-  ],
-  alternates: {
-    canonical: PAGE_URL,
-  },
-  openGraph: {
-    url: PAGE_URL,
-    title: "Consultoría gratuita de desarrollo web | Code Innova",
-    description:
-      "Reserva tu consultoría gratuita. En 30 minutos analizamos tu proyecto y te damos una hoja de ruta clara. Sin compromiso.",
-    images: [{ url: `${BASE_URL}/og-image.png`, width: 1200, height: 630, alt: "Consultoría gratuita — Code Innova" }],
-  },
-};
-
-const contactPageSchema = {
-  "@context": "https://schema.org",
-  "@type": "ContactPage",
-  name: "Consultoría gratuita — Code Innova",
-  url: PAGE_URL,
-  description:
-    "Reserva una consultoría gratuita con el equipo de Code Innova para analizar tu proyecto de desarrollo web o software.",
-  mainEntity: {
-    "@type": "Organization",
-    name: "Code Innova",
-    email: "info@codeinnova.es",
-    url: BASE_URL,
-  },
-};
+export const metadata: Metadata = buildConsultoriaMetadata();
 
 const BENEFITS = [
   {
@@ -65,7 +27,7 @@ export default function ContactPage() {
     <PageLayout>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildConsultoriaSchema()) }}
       />
       {/* Cabecera de la página */}
       <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 pt-32 pb-16 md:pt-36 md:pb-20">

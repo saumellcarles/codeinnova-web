@@ -6,18 +6,18 @@ export const faqSchema = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "¿Qué servicios ofrece Code Innova?",
+      name: "¿Qué servicios ofrece CodeInnova?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Code Innova ofrece desarrollo de aplicaciones web a medida, diseño y desarrollo de sitios web corporativos y landing pages, tiendas online (e-commerce) con integración de Stripe y RedSys, y configuración de servidores cloud en AWS y Google Cloud. También ofrecemos consultoría tecnológica gratuita sin compromiso.",
+        text: "CodeInnova ofrece desarrollo de aplicaciones web a medida, diseño y desarrollo de sitios web corporativos y landing pages, tiendas online (e-commerce) con integración de Stripe y RedSys, y configuración de servidores cloud en AWS y Google Cloud. También ofrecemos consultoría tecnológica gratuita sin compromiso.",
       },
     },
     {
       "@type": "Question",
-      name: "¿Dónde está ubicada Code Innova?",
+      name: "¿Dónde está ubicada CodeInnova?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Code Innova está ubicada en Tarragona, España. Trabajamos con clientes de toda España y ofrecemos reuniones presenciales o por videollamada según la preferencia del cliente.",
+        text: "CodeInnova está ubicada en Tarragona, España. Trabajamos con clientes de toda España y ofrecemos reuniones presenciales o por videollamada según la preferencia del cliente.",
       },
     },
     {
@@ -59,7 +59,7 @@ export const aggregateRatingSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "@id": `${BASE_URL}/#organization`,
-  name: "Code Innova",
+  name: "CodeInnova",
   url: BASE_URL,
   aggregateRating: {
     "@type": "AggregateRating",
@@ -75,14 +75,14 @@ export const aggregateRatingSchema = {
       reviewBody:
         "Muy contentos con los resultados de nuestra nueva página web y ecommerce. Mucha iniciativa, rapidez y resolución. Recomiendo 100% sus servicios, tanto por su trato cercano como por la calidad del trabajo final.",
       reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-      itemReviewed: { "@type": "Organization", name: "Code Innova" },
+      itemReviewed: { "@type": "Organization", name: "CodeInnova" },
     },
     {
       "@type": "Review",
       author: { "@type": "Person", name: "Sebas" },
       reviewBody: "Gran trabajo realizado. Profesional, próximo y atento a los detalles.",
       reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-      itemReviewed: { "@type": "Organization", name: "Code Innova" },
+      itemReviewed: { "@type": "Organization", name: "CodeInnova" },
     },
     {
       "@type": "Review",
@@ -90,7 +90,7 @@ export const aggregateRatingSchema = {
       reviewBody:
         "Fácil, rápido y efectivo. Carles es un gran profesional. Nos ayudó mucho a arrancar con nuestro club deportivo. 100% recomendable!!",
       reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-      itemReviewed: { "@type": "Organization", name: "Code Innova" },
+      itemReviewed: { "@type": "Organization", name: "CodeInnova" },
     },
     {
       "@type": "Review",
@@ -98,7 +98,7 @@ export const aggregateRatingSchema = {
       reviewBody:
         "Estamos muy satisfechos con el servicio que hemos recibido. Sin lugar a dudas, volveríamos a trabajar con ellos en el futuro. Han demostrado una gran atención a nuestras necesidades.",
       reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-      itemReviewed: { "@type": "Organization", name: "Code Innova" },
+      itemReviewed: { "@type": "Organization", name: "CodeInnova" },
     },
   ],
 };
@@ -107,7 +107,7 @@ export const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "@id": `${BASE_URL}/#organization`,
-  name: "Code Innova",
+  name: "CodeInnova",
   image: `${BASE_URL}/logo.png`,
   url: BASE_URL,
   telephone: undefined,

@@ -3,9 +3,9 @@ import Link from "next/link";
 import { PageLayout } from "@/components/layout/PageLayout";
 
 export const metadata: Metadata = {
-  title: "Política de cookies | Code Innova",
+  title: "Política de cookies",
   description:
-    "Consulta la política de cookies de Code Innova. Información sobre los tipos de cookies que utilizamos y cómo puedes gestionarlas.",
+    "Consulta la política de cookies de CodeInnova. Información sobre los tipos de cookies que utilizamos y cómo puedes gestionarlas.",
   alternates: { canonical: "https://codeinnova.es/politica-de-cookies" },
   robots: { index: true, follow: true },
 };

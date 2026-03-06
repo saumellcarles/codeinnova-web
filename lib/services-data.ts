@@ -52,9 +52,9 @@ export const SERVICES: ServiceData[] = [
     pitch2Title: "Aplicaciones web a medida, innovadoras y escalables",
     pitch2Text:
       "Diseñamos y desarrollamos aplicaciones web personalizadas que se ajustan con precisión a las necesidades de cada negocio. Combinamos visión tecnológica, estrategia clara y un trato cercano durante todo el proceso, desde la idea inicial hasta la evolución continua del producto.",
-    seoTitle: "Desarrollo de aplicaciones web a medida en Tarragona | Code Innova",
+    seoTitle: "Desarrollo de Aplicaciones Web a Medida en Tarragona",
     seoDescription:
-      "Desarrollamos aplicaciones web a medida con arquitecturas modernas y escalables. Frontend responsive, backend con APIs seguras, bases de datos y CI/CD en cloud. +10 años de experiencia en Tarragona.",
+      "Especialistas en desarrollo de aplicaciones web a medida en Tarragona. Next.js, React, Spring Boot, APIs, bases de datos y CI/CD. +10 años de experiencia. Consultoría gratuita.",
     keywords: [
       "aplicaciones web a medida",
       "desarrollo aplicaciones web Tarragona",
@@ -110,9 +110,9 @@ export const SERVICES: ServiceData[] = [
     pitch2Title: "Sitios web a medida, innovadores y escalables",
     pitch2Text:
       "Diseñamos y desarrollamos sitios web que se ajustan perfectamente a las necesidades de cada negocio. Combinamos visión tecnológica, criterio estratégico y un enfoque cercano en todas las etapas, desde la idea inicial hasta la evolución continua del sitio.",
-    seoTitle: "Diseño y desarrollo web profesional en Tarragona | Code Innova",
+    seoTitle: "Diseño y Desarrollo Web Profesional en Tarragona",
     seoDescription:
-      "Diseño y desarrollo de sitios web profesionales en Tarragona. Responsive, optimizados para SEO, rápidos y seguros. Páginas corporativas, landing pages y portales web a medida con +10 años de experiencia.",
+      "Creamos sitios web profesionales en Tarragona. Diseño responsive, SEO optimizado, páginas corporativas y landing pages. +10 años de experiencia. Presupuesto sin compromiso.",
     keywords: [
       "diseño web Tarragona",
       "desarrollo web profesional",
@@ -168,9 +168,9 @@ export const SERVICES: ServiceData[] = [
     pitch2Title: "E-commerce a medida, innovador y escalable",
     pitch2Text:
       "Desarrollamos plataformas de e-commerce diseñadas para adaptarse a la evolución de tu negocio. Combinamos visión tecnológica con estrategia comercial y un acompañamiento cercano en todas las fases, desde la idea inicial hasta la optimización continua.",
-    seoTitle: "Desarrollo de tiendas online y e-commerce en Tarragona | Code Innova",
+    seoTitle: "Tiendas Online y E-commerce en Tarragona",
     seoDescription:
-      "Creamos tiendas online a medida en Tarragona con WooCommerce y soluciones personalizadas. Integración de Stripe y RedSys, SEO para e-commerce, diseño responsive y gestión de catálogo. Consultoría gratuita.",
+      "Desarrollo de tiendas online a medida en Tarragona. WooCommerce, Stripe, RedSys, SEO e-commerce. +10 años creando e-commerce. Consultoría gratuita.",
     keywords: [
       "tienda online Tarragona",
       "desarrollo e-commerce",
@@ -226,9 +226,9 @@ export const SERVICES: ServiceData[] = [
     pitch2Title: "Infraestructura cloud segura, escalable y de alto rendimiento",
     pitch2Text:
       "Diseñamos y gestionamos servidores cloud que se adaptan con precisión al crecimiento de tu negocio. Combinamos experiencia técnica, visión estratégica y un acompañamiento cercano para asegurar entornos fiables, flexibles y siempre disponibles.",
-    seoTitle: "Servidores Cloud AWS y Google Cloud en Tarragona | Code Innova",
+    seoTitle: "Servidores Cloud AWS y Google Cloud en Tarragona",
     seoDescription:
-      "Configuración y gestión de servidores cloud escalables en AWS y Google Cloud. Certificados SSL, copias de seguridad, CI/CD y soporte continuado. Infraestructura segura y de alto rendimiento para tu negocio en Tarragona.",
+      "Especialistas en servidores cloud en Tarragona. AWS, Google Cloud, SSL, copias de seguridad, CI/CD. Infraestructura escalable. +10 años de experiencia. Consultoría gratuita.",
     keywords: [
       "servidores cloud Tarragona",
       "AWS gestión",

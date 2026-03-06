@@ -172,7 +172,7 @@ export function PageLoader() {
             >
               <Image
                 src="/logo-symbol.png"
-                alt="Code Innova"
+                alt="CodeInnova"
                 width={48}
                 height={48}
                 className="h-12 w-12 object-contain drop-shadow-sm"
