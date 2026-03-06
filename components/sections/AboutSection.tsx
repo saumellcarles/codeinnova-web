@@ -18,8 +18,8 @@ const TECH_STACK = [
   { name: "Dokploy",      src: "/tech/dokploy.png",      pad: "p-1"    },
   { name: "Railway",      src: "/tech/railway.png",      pad: "p-1.5"  },
   { name: "Vercel",       src: "/tech/vercel.png",       pad: "p-1.5"  },
-  { name: "WordPress",    src: "/tech/wordpress.png",    pad: "p-1.5"  },
-  { name: "WooCommerce",  src: "/tech/woocommerce.png",  pad: "p-1.5"  },
+  { name: "WordPress",    src: "/tech/wordpress.png",    pad: "p-0.5"  },
+  { name: "WooCommerce",  src: "/tech/woocommerce.png",  pad: "p-1"  },
 ];
 
 const PILLARS = [
