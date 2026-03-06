@@ -4,7 +4,7 @@ export const SITE = {
   name: "CodeInnova",
   url: BASE_URL,
   locale: "es_ES",
-  defaultTitle: "Especialistas en desarrollo web y software a medida en Tarragona",
+  defaultTitle: "CodeInnova | Especialistas en desarrollo web y software a medida en Tarragona",
 } as const;
 
 export function buildServiceMetadata(service: {

@@ -139,7 +139,7 @@ export function Footer() {
             © {new Date().getFullYear()} CodeInnova. Todos los derechos
             reservados.
           </p>
-          <p>Especialistas en desarrollo web y software a medida en Tarragona</p>
+          <p>CodeInnova | Especialistas en desarrollo web y software a medida en Tarragona</p>
         </div>
       </div>
     </footer>
