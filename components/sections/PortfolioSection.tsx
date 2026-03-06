@@ -235,7 +235,7 @@ export function PortfolioSection() {
       </div>
       <div className="relative mx-auto max-w-6xl px-6">
         <m.p className="font-mono text-xs font-semibold uppercase text-gray-900" {...sectionHeaderFadeIn}>
-          <span className="text-gray-600">// </span>Nuestros proyectos
+          {"// "}Nuestros proyectos
         </m.p>
 
         <m.header className="mt-4 max-w-xl" {...sectionHeaderFadeIn}>

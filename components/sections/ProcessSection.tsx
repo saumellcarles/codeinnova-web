@@ -47,7 +47,7 @@ export function ProcessSection() {
       </div>
       <div className="relative mx-auto max-w-6xl px-6">
         <m.p className="font-mono text-xs font-semibold uppercase text-gray-900" {...sectionHeaderFadeIn}>
-          <span className="text-gray-600">// </span>Nuestra metodología
+          {"// "}Nuestra metodología
         </m.p>
 
         <m.header className="mt-4 max-w-2xl" {...sectionHeaderFadeIn}>

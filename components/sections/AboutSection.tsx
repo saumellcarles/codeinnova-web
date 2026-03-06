@@ -52,7 +52,7 @@ export function AboutSection() {
           className="font-mono text-xs font-semibold uppercase text-gray-900"
           {...sectionHeaderFadeIn}
         >
-          <span className="text-gray-600">// </span>Sobre nosotros
+          {"// "}Sobre nosotros
         </m.p>
 
         <div className="mt-8 grid gap-12 md:grid-cols-2 md:items-start md:gap-16">

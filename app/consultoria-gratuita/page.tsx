@@ -84,7 +84,7 @@ export default function ContactPage() {
 
         <div className="relative mx-auto max-w-6xl px-6">
           <p className="font-mono text-xs font-semibold uppercase text-white">
-            <span className="text-orange-400">// </span>Hablemos
+            {"// "}Hablemos
           </p>
           <h1 className="mt-3 text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl">
             Reserva tu consultoría{" "}

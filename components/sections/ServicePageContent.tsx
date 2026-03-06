@@ -131,7 +131,7 @@ export function ServicePageContent({ service, serviceSchema }: ServicePageConten
         <div className="mx-auto max-w-6xl px-6">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-start lg:gap-16">
             <div>
-              <p className="font-mono text-xs font-semibold uppercase text-gray-900"><span className="text-gray-600">// </span>Sobre el servicio</p>
+              <p className="font-mono text-xs font-semibold uppercase text-gray-900">{"// "}Sobre el servicio</p>
               <h2 className="mt-4 text-2xl font-bold tracking-tight text-gray-900 md:text-3xl">
                 ¿Qué incluye el servicio?
               </h2>
@@ -187,7 +187,7 @@ export function ServicePageContent({ service, serviceSchema }: ServicePageConten
       {service.faqs?.length > 0 && (
         <section className="bg-gray-50 py-16 md:py-20">
           <div className="mx-auto max-w-3xl px-6">
-            <p className="font-mono text-xs font-semibold uppercase text-gray-900"><span className="text-gray-600">// </span>Preguntas frecuentes</p>
+            <p className="font-mono text-xs font-semibold uppercase text-gray-900">{"// "}Preguntas frecuentes</p>
             <h2 className="mt-3 text-2xl font-bold tracking-tight text-gray-900 md:text-3xl">
               Preguntas frecuentes sobre {service.title.toLowerCase()}
             </h2>
