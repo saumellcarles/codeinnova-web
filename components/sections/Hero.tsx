@@ -69,7 +69,8 @@ export function Hero() {
           y{" "}
           <span className="bg-gradient-to-r from-blue-400 via-indigo-300 to-orange-400 bg-clip-text text-transparent">
             software
-          </span>
+          </span>{" "}
+          <span className="text-white">a medida</span>
         </m.h1>
 
         <m.p
