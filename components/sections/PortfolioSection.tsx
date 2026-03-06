@@ -214,7 +214,7 @@ function FilteredGrid({ category }: { category: string }) {
 export function PortfolioSection() {
   return (
     <m.section
-      id="portfolio"
+      id="proyectos"
       className="relative overflow-hidden bg-gradient-to-b from-gray-50 via-white to-gray-50/80 py-16 md:py-24"
       {...sectionFadeInUp}
     >
@@ -234,8 +234,8 @@ export function PortfolioSection() {
         <div className="absolute bottom-0 left-0 h-64 w-64 translate-y-1/3 -translate-x-1/4 rounded-full bg-orange-100/50 blur-3xl" />
       </div>
       <div className="relative mx-auto max-w-6xl px-6">
-        <m.p className="font-mono text-xs font-semibold text-gray-400" {...sectionHeaderFadeIn}>
-          <span className="text-indigo-500">// </span>Nuestro portfolio
+        <m.p className="font-mono text-xs font-semibold uppercase text-orange-500" {...sectionHeaderFadeIn}>
+          <span className="text-indigo-500">// </span>Nuestros proyectos
         </m.p>
 
         <m.header className="mt-4 max-w-xl" {...sectionHeaderFadeIn}>

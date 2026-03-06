@@ -66,8 +66,8 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/#portfolio" className="transition hover:text-gray-200">
-                  Portfolio
+                <Link href="/#proyectos" className="transition hover:text-gray-200">
+                  Proyectos
                 </Link>
               </li>
               <li>

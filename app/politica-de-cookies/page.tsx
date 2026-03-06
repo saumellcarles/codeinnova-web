@@ -15,7 +15,7 @@ export default function CookiesPage() {
     <PageLayout>
       <section className="bg-white py-24 md:py-32">
         <div className="mx-auto max-w-3xl px-6">
-          <p className="font-mono text-xs font-semibold uppercase tracking-widest text-indigo-500">
+          <p className="font-mono text-xs font-semibold uppercase text-orange-500">
             Legal
           </p>
           <h1 className="mt-3 text-3xl font-black tracking-tight text-gray-900 md:text-4xl">

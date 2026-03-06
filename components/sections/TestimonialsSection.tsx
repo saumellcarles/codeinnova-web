@@ -73,7 +73,7 @@ export function TestimonialsSection() {
       </div>
 
       <div className="relative mx-auto max-w-6xl px-6">
-        <m.p className="font-mono text-xs font-semibold text-slate-500" {...sectionHeaderFadeIn}>
+        <m.p className="font-mono text-xs font-semibold uppercase text-orange-500" {...sectionHeaderFadeIn}>
           <span className="text-orange-400">// </span>CLIENTES
         </m.p>
 

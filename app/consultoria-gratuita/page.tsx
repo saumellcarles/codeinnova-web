@@ -83,7 +83,7 @@ export default function ContactPage() {
         </div>
 
         <div className="relative mx-auto max-w-6xl px-6">
-          <p className="font-mono text-xs font-semibold uppercase tracking-[0.3em] text-orange-400">
+          <p className="font-mono text-xs font-semibold uppercase text-orange-500">
             {"// Hablemos"}
           </p>
           <h1 className="mt-3 text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl">

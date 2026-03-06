@@ -59,7 +59,7 @@ const NAV_ITEMS: NavItem[] = [
   { type: "dropdown", label: "Servicios",   section: "servicios"   },
   { type: "scroll",   label: "Metodología", section: "metodologia" },
   { type: "scroll",   label: "Clientes",    section: "clientes"    },
-  { type: "scroll",   label: "Portfolio",   section: "portfolio"   },
+  { type: "scroll",   label: "Proyectos",   section: "proyectos"   },
 ];
 
 const SECTION_SLUGS = NAV_ITEMS.map((i) => i.section);
