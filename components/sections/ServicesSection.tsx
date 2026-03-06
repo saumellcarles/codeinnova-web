@@ -122,7 +122,7 @@ export function ServicesSection() {
                     href={s.href}
                     className="mt-auto inline-flex items-center gap-1 text-xs font-semibold text-slate-400 transition hover:text-white"
                   >
-                    Más información sobre {s.title} <ArrowRightIcon className="h-3 w-3" />
+                    Ver servicio de {s.title} <ArrowRightIcon className="h-3 w-3" />
                   </Link>
                 </article>
               </div>
@@ -152,7 +152,7 @@ export function ServicesSection() {
                 href={s.href}
                 className="mt-auto inline-flex items-center gap-1 text-xs font-semibold text-slate-400 transition hover:text-white"
               >
-                Más información sobre {s.title} <ArrowRightIcon className="h-3 w-3" />
+                Ver servicio de {s.title} <ArrowRightIcon className="h-3 w-3" />
               </Link>
             </m.article>
           ))}

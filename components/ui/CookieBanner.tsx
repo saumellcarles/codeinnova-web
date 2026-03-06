@@ -3,27 +3,34 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
-const STORAGE_KEY = "ci_cookie_consent";
+const COOKIE_NAME = "ci_cookie_consent";
+const COOKIE_MAX_AGE = 60 * 60 * 24 * 365; // 1 año en segundos
+
+function getCookie(name: string): string | undefined {
+  return document.cookie
+    .split("; ")
+    .find((row) => row.startsWith(`${name}=`))
+    ?.split("=")[1];
+}
+
+function setCookie(name: string, value: string) {
+  document.cookie = `${name}=${value}; max-age=${COOKIE_MAX_AGE}; path=/; SameSite=Lax`;
+}
 
 export function CookieBanner() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (!stored) setVisible(true);
-    } catch {
-      // localStorage no disponible (SSR o modo privado restrictivo)
-    }
+    if (!getCookie(COOKIE_NAME)) setVisible(true);
   }, []);
 
   const accept = () => {
-    localStorage.setItem(STORAGE_KEY, "accepted");
+    setCookie(COOKIE_NAME, "accepted");
     setVisible(false);
   };
 
   const reject = () => {
-    localStorage.setItem(STORAGE_KEY, "rejected");
+    setCookie(COOKIE_NAME, "rejected");
     setVisible(false);
   };
 

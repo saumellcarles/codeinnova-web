@@ -66,7 +66,7 @@ export default function CookiesPage() {
                   <tr>
                     <td className="px-4 py-3 font-mono">ci_cookie_consent</td>
                     <td className="px-4 py-3">codeinnova.es</td>
-                    <td className="px-4 py-3">Guarda tu preferencia de cookies</td>
+                    <td className="px-4 py-3">Guarda tu preferencia de cookies (cookie de navegador)</td>
                     <td className="px-4 py-3">1 año</td>
                   </tr>
                   <tr>
