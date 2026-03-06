@@ -31,7 +31,7 @@ export function GET() {
   ]);
 
   const lines = [
-    "# robots.txt - Code Innova",
+    "# robots.txt - CodeInnova",
     "# https://codeinnova.es",
     "",
     "# llms.txt: AI-optimized content (services, portfolio, contact)",
