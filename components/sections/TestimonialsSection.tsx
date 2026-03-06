@@ -3,6 +3,7 @@
 import { m } from "motion/react";
 import { StarFilledIcon } from "@radix-ui/react-icons";
 import { sectionFadeInUp, sectionHeaderFadeIn, getCardItemFadeIn } from "../../animations/marketingVariants";
+import { SectionLabel } from "../ui/SectionLabel";
 import { SnapCarousel } from "../ui/SnapCarousel";
 
 const TESTIMONIALS = [
@@ -73,9 +74,7 @@ export function TestimonialsSection() {
       </div>
 
       <div className="relative mx-auto max-w-6xl px-6">
-        <m.p className="font-mono text-xs font-semibold uppercase text-white" {...sectionHeaderFadeIn}>
-          {"// "}CLIENTES
-        </m.p>
+        <SectionLabel variant="dark">CLIENTES</SectionLabel>
 
         <m.header className="mt-4 max-w-xl" {...sectionHeaderFadeIn}>
           <h2 className="text-2xl font-bold tracking-tight text-white md:text-3xl lg:text-4xl">

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CheckIcon, ArrowRightIcon, ArrowLeftIcon } from "@radix-ui/react-icons";
+import { SectionLabel } from "../ui/SectionLabel";
 import { PageLayout } from "../layout/PageLayout";
 import { ProcessSection } from "./ProcessSection";
 import { TestimonialsSection } from "./TestimonialsSection";
@@ -131,7 +132,7 @@ export function ServicePageContent({ service, serviceSchema }: ServicePageConten
         <div className="mx-auto max-w-6xl px-6">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-start lg:gap-16">
             <div>
-              <p className="font-mono text-xs font-semibold uppercase text-gray-900">{"// "}Sobre el servicio</p>
+              <SectionLabel variant="light">Sobre el servicio</SectionLabel>
               <h2 className="mt-4 text-2xl font-bold tracking-tight text-gray-900 md:text-3xl">
                 ¿Qué incluye el servicio?
               </h2>
@@ -187,7 +188,7 @@ export function ServicePageContent({ service, serviceSchema }: ServicePageConten
       {service.faqs?.length > 0 && (
         <section className="bg-gray-50 py-16 md:py-20">
           <div className="mx-auto max-w-3xl px-6">
-            <p className="font-mono text-xs font-semibold uppercase text-gray-900">{"// "}Preguntas frecuentes</p>
+            <SectionLabel variant="light">Preguntas frecuentes</SectionLabel>
             <h2 className="mt-3 text-2xl font-bold tracking-tight text-gray-900 md:text-3xl">
               Preguntas frecuentes sobre {service.title.toLowerCase()}
             </h2>

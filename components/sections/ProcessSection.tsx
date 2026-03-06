@@ -2,6 +2,7 @@
 
 import { m } from "motion/react";
 import { sectionFadeInUp, sectionHeaderFadeIn, getCardItemFadeIn } from "../../animations/marketingVariants";
+import { SectionLabel } from "../ui/SectionLabel";
 import { SnapCarousel } from "../ui/SnapCarousel";
 
 const STEPS = [
@@ -46,9 +47,7 @@ export function ProcessSection() {
         <div className="absolute left-1/2 top-1/2 h-px w-full -translate-y-1/2 bg-gradient-to-r from-transparent via-indigo-100 to-transparent" />
       </div>
       <div className="relative mx-auto max-w-6xl px-6">
-        <m.p className="font-mono text-xs font-semibold uppercase text-gray-900" {...sectionHeaderFadeIn}>
-          {"// "}Nuestra metodología
-        </m.p>
+        <SectionLabel variant="light">Nuestra metodología</SectionLabel>
 
         <m.header className="mt-4 max-w-2xl" {...sectionHeaderFadeIn}>
           <h2 className="text-2xl font-bold tracking-tight text-gray-900 md:text-3xl lg:text-4xl">

@@ -74,6 +74,7 @@ export function Header() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen]     = useState(false);
   const [scrolled, setScrolled]         = useState(false);
+  const [activeSection, setActiveSection] = useState<string | null>(null);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const servicesRef = useRef<HTMLLIElement>(null);
@@ -90,15 +91,51 @@ export function Header() {
     };
   }, []);
 
-  // Cierra el menú móvil en cambios de ruta
-  useEffect(() => { setMobileOpen(false); }, [pathname]);
+  // Detecta la sección activa según scroll (solo en home)
+  useEffect(() => {
+    if (pathname !== "/") return;
+
+    const SCROLL_SECTIONS = ["nosotros", "servicios", "metodologia", "clientes", "proyectos"];
+    const OFFSET = 180; // px desde el top (altura header + margen)
+
+    const updateActiveSection = () => {
+      for (let i = SCROLL_SECTIONS.length - 1; i >= 0; i--) {
+        const el = document.getElementById(SCROLL_SECTIONS[i]);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= OFFSET) {
+            setActiveSection(SCROLL_SECTIONS[i]);
+            return;
+          }
+        }
+      }
+      setActiveSection(null); // aún en hero
+    };
+
+    updateActiveSection();
+    const t = setTimeout(updateActiveSection, 100); // Re-check tras hidratación
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    return () => {
+      clearTimeout(t);
+      window.removeEventListener("scroll", updateActiveSection);
+    };
+  }, [pathname]);
+
+  // Cierra el menú móvil y resetea sección activa en cambios de ruta
+  useEffect(() => {
+    setMobileOpen(false);
+    if (pathname !== "/") setActiveSection(null);
+  }, [pathname]);
 
   const isLight   = !hasDarkHero(pathname ?? "") || scrolled;
   const isOnHome  = pathname === "/" || SECTION_SLUGS.includes((pathname ?? "").slice(1));
 
-  // Detecta el item activo
+  // Detecta el item activo (pathname o scroll en home)
   const isActive = (section: string) => {
     const p = pathname ?? "";
+    if (isOnHome && pathname === "/") {
+      return activeSection === section;
+    }
     if (section === "servicios") return p.startsWith("/servicios");
     return p === `/${section}`;
   };

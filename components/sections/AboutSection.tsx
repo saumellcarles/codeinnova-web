@@ -5,6 +5,7 @@ import Image from "next/image";
 import { m } from "motion/react";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 import { sectionFadeInUp, sectionHeaderFadeIn } from "../../animations/marketingVariants";
+import { SectionLabel } from "../ui/SectionLabel";
 
 const TECH_STACK = [
   { name: "Next.js",      src: "/tech/nextjs.png",       pad: "p-1.5"  },
@@ -47,13 +48,7 @@ export function AboutSection() {
       {...sectionFadeInUp}
     >
       <div className="mx-auto max-w-6xl px-6 md:px-6">
-        {/* Section label — estilo // como en codeinnova.com */}
-        <m.p
-          className="font-mono text-xs font-semibold uppercase text-gray-900"
-          {...sectionHeaderFadeIn}
-        >
-          {"// "}Sobre nosotros
-        </m.p>
+        <SectionLabel variant="light">Sobre nosotros</SectionLabel>
 
         <div className="mt-8 grid gap-12 md:grid-cols-2 md:items-start md:gap-16">
           {/* Left: headline + stat + CTA */}

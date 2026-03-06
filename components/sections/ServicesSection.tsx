@@ -4,6 +4,7 @@ import Link from "next/link";
 import { m } from "motion/react";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 import { sectionFadeInUp, sectionHeaderFadeIn, getCardItemFadeIn } from "../../animations/marketingVariants";
+import { SectionLabel } from "../ui/SectionLabel";
 import { SnapCarousel } from "../ui/SnapCarousel";
 
 // Iconos SVG inline para los 4 servicios — fondo oscuro, estilo técnico
@@ -84,9 +85,7 @@ export function ServicesSection() {
 
       <div className="relative mx-auto max-w-6xl px-6">
         {/* Section label */}
-        <m.p className="font-mono text-xs font-semibold uppercase text-white" {...sectionHeaderFadeIn}>
-          {"// "}NUESTROS SERVICIOS
-        </m.p>
+        <SectionLabel variant="dark">NUESTROS SERVICIOS</SectionLabel>
 
         <m.header className="mt-4 max-w-2xl" {...sectionHeaderFadeIn}>
           <h2 className="text-2xl font-bold tracking-tight text-white md:text-3xl lg:text-4xl">

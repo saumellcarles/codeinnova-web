@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PageLayout } from "../../components/layout/PageLayout";
+import { SectionLabel } from "../../components/ui/SectionLabel";
 import { CalEmbed } from "../../components/contact/CalEmbed";
 import { CheckIcon, EnvelopeClosedIcon } from "@radix-ui/react-icons";
 
@@ -83,9 +84,7 @@ export default function ContactPage() {
         </div>
 
         <div className="relative mx-auto max-w-6xl px-6">
-          <p className="font-mono text-xs font-semibold uppercase text-white">
-            {"// "}Hablemos
-          </p>
+          <SectionLabel variant="dark">Hablemos</SectionLabel>
           <h1 className="mt-3 text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl">
             Reserva tu consultoría{" "}
             <span className="bg-gradient-to-r from-indigo-400 to-orange-400 bg-clip-text text-transparent">

@@ -5,6 +5,7 @@ import { m, AnimatePresence } from "motion/react";
 import { Tabs } from "@radix-ui/themes";
 import { ArrowTopRightIcon, PlusIcon } from "@radix-ui/react-icons";
 import { sectionFadeInUp, sectionHeaderFadeIn } from "../../animations/marketingVariants";
+import { SectionLabel } from "../ui/SectionLabel";
 import { SnapCarousel } from "../ui/SnapCarousel";
 
 const PAGE_SIZE = 3;
@@ -234,9 +235,7 @@ export function PortfolioSection() {
         <div className="absolute bottom-0 left-0 h-64 w-64 translate-y-1/3 -translate-x-1/4 rounded-full bg-orange-100/50 blur-3xl" />
       </div>
       <div className="relative mx-auto max-w-6xl px-6">
-        <m.p className="font-mono text-xs font-semibold uppercase text-gray-900" {...sectionHeaderFadeIn}>
-          {"// "}Nuestros proyectos
-        </m.p>
+        <SectionLabel variant="light">Nuestros proyectos</SectionLabel>
 
         <m.header className="mt-4 max-w-xl" {...sectionHeaderFadeIn}>
           <h2 className="text-2xl font-bold tracking-tight text-gray-900 md:text-3xl lg:text-4xl">
