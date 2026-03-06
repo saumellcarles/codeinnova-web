@@ -2,4 +2,4 @@
 NODE_ENV = "production"
 
 [phases.install]
-cmds = ["npm install --include=dev"]
+cmds = ["npm install --omit=dev"]
