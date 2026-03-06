@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 
-const SECTION_SLUGS = ["nosotros", "servicios", "proyectos", "clientes"];
+const SECTION_SLUGS = ["nosotros", "servicios", "metodologia", "proyectos", "clientes"];
 
 const securityHeaders = [
   { key: "X-DNS-Prefetch-Control", value: "on" },

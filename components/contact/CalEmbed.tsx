@@ -1,15 +1,23 @@
 "use client";
 
 import Cal, { getCalApi } from "@calcom/embed-react";
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
+import { LoaderContext } from "../../contexts/LoaderContext";
 
 export function CalEmbed() {
+  const loaderCtx = useContext(LoaderContext);
+
   useEffect(() => {
     (async function () {
       const cal = await getCalApi({ namespace: "consutoria-gratuita" });
       cal("ui", { hideEventTypeDetails: false, layout: "month_view" });
+      // Señal al PageLoader cuando el calendario está listo
+      cal("on", {
+        action: "linkReady",
+        callback: () => loaderCtx?.setCalendarLoaded(true),
+      });
     })();
-  }, []);
+  }, [loaderCtx]);
   return (
     <Cal
       namespace="consutoria-gratuita"

@@ -1,27 +1,69 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { m, AnimatePresence } from "motion/react";
+import { LoaderContext } from "../../contexts/LoaderContext";
+
+// Rutas de la landing (ancla) — mismo contenido, no mostrar loader
+const LANDING_ROUTES = ["/", "/nosotros", "/servicios", "/metodologia", "/proyectos", "/clientes"];
+
+const isLandingRoute = (p: string) => LANDING_ROUTES.includes(p);
 
 // Spinner completo visible en todos los dispositivos.
-// Solo se muestra en cambios de ruta — nunca en la carga inicial
-// para no bloquear FCP/LCP en PageSpeed.
+// Solo se muestra en cambios de ruta reales — nunca en enlaces ancla ni carga inicial.
+// En consultoría gratuita: espera a que el calendario cargue.
 export function PageLoader() {
   const [visible, setVisible] = useState(false);
   const pathname = usePathname();
+  const prevPathRef = useRef<string | null>(null);
   const isFirstRender = useRef(true);
+  const loaderCtx = useContext(LoaderContext);
 
   useEffect(() => {
+    const prev = prevPathRef.current;
+    prevPathRef.current = pathname ?? "/";
+
     if (isFirstRender.current) {
       isFirstRender.current = false;
       return;
     }
+
+    // No mostrar loader en navegación entre rutas de la landing (ancla)
+    if (prev !== null && isLandingRoute(prev) && isLandingRoute(pathname ?? "/")) {
+      return;
+    }
+
     setVisible(true);
-    const t = setTimeout(() => setVisible(false), 700);
-    return () => clearTimeout(t);
   }, [pathname]);
+
+  // Ocultar loader: tras 700ms O cuando calendario cargue (solo en consultoría)
+  useEffect(() => {
+    if (!visible) return;
+
+    const isConsultoria = pathname === "/consultoria-gratuita";
+
+    if (!isConsultoria) {
+      const t = setTimeout(() => setVisible(false), 700);
+      return () => clearTimeout(t);
+    }
+
+    // En consultoría: esperar a que el calendario cargue (máx 12s por si falla)
+    if (loaderCtx?.calendarLoaded) {
+      const t = setTimeout(() => setVisible(false), 300);
+      return () => clearTimeout(t);
+    }
+    const fallback = setTimeout(() => setVisible(false), 12000);
+    return () => clearTimeout(fallback);
+  }, [visible, pathname, loaderCtx?.calendarLoaded]);
+
+  // Reset calendarLoaded al salir de consultoría
+  useEffect(() => {
+    if (pathname !== "/consultoria-gratuita") {
+      loaderCtx?.setCalendarLoaded(false);
+    }
+  }, [pathname, loaderCtx]);
 
   return (
     <AnimatePresence>

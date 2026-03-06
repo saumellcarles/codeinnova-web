@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 
-const SECTION_SLUGS = ["nosotros", "servicios", "proyectos", "clientes"];
+const SECTION_SLUGS = ["nosotros", "servicios", "metodologia", "proyectos", "clientes"];
 
 export function SectionScroller() {
   const pathname = usePathname();

@@ -6,6 +6,7 @@ import Script from "next/script";
 import { PageLoader } from "../components/ui/PageLoader";
 import { MotionProvider } from "../components/ui/MotionProvider";
 import { CookieBanner } from "../components/ui/CookieBanner";
+import { LoaderProvider } from "../contexts/LoaderContext";
 
 const BASE_URL = "https://codeinnova.es";
 
@@ -151,11 +152,13 @@ export default function RootLayout({
           Saltar al contenido principal
         </a>
         <Theme appearance="light" accentColor="indigo" radius="large" scaling="100%">
-          <MotionProvider>
-            <PageLoader />
-            {children}
-            <CookieBanner />
-          </MotionProvider>
+          <LoaderProvider>
+            <MotionProvider>
+              <PageLoader />
+              {children}
+              <CookieBanner />
+            </MotionProvider>
+          </LoaderProvider>
         </Theme>
         <Script
           src="//code.tidio.co/pfkcjjg4h0abuxcb95ahb4hsuigjulv2.js"
