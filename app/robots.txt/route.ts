@@ -36,7 +36,7 @@ export function GET() {
     "",
     "# llms.txt: AI-optimized content (services, portfolio, contact)",
     `# ${BASE_URL}/llms.txt`,
-    `LLMs: ${BASE_URL}/llms.txt`,
+    `Llms-txt: ${BASE_URL}/llms.txt`,
     ...blocks,
     "",
     `Sitemap: ${BASE_URL}/sitemap.xml`,
