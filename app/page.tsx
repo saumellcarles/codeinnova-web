@@ -18,9 +18,9 @@ const PortfolioSection = dynamic(
 const BASE_URL = "https://codeinnova.es";
 
 export const metadata: Metadata = {
-  title: "Agencia de desarrollo web y software a medida en Tarragona | Code Innova",
+  title: "Especialistas en desarrollo web y software a medida en Tarragona | Code Innova",
   description:
-    "Code Innova, agencia de desarrollo web y software a medida en Tarragona. Creamos aplicaciones web, tiendas online, SaaS y soluciones cloud. +10 años de experiencia. Consultoría gratuita.",
+    "Code Innova, especialistas en desarrollo web y software a medida en Tarragona. Creamos aplicaciones web, tiendas online, SaaS y soluciones cloud. +10 años de experiencia. Consultoría gratuita.",
   alternates: {
     canonical: BASE_URL,
   },
@@ -28,8 +28,8 @@ export const metadata: Metadata = {
     url: BASE_URL,
     title: "Code Innova | Desarrollo web y software a medida en Tarragona",
     description:
-      "Agencia especializada en desarrollo web, software a medida, e-commerce y servidores cloud. Más de 10 años acelerando negocios digitales desde Tarragona.",
-    images: [{ url: `${BASE_URL}/og-image.png`, width: 1200, height: 630, alt: "Code Innova — Agencia de desarrollo web en Tarragona" }],
+      "Especialistas en desarrollo web, software a medida, e-commerce y servidores cloud. Más de 10 años acelerando negocios digitales desde Tarragona.",
+    images: [{ url: `${BASE_URL}/og-image.png`, width: 1200, height: 630, alt: "Code Innova — Especialistas en desarrollo web en Tarragona" }],
   },
 };
 
@@ -47,7 +47,7 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "¿Dónde está ubicada la agencia Code Innova?",
+      name: "¿Dónde está ubicada Code Innova?",
       acceptedAnswer: {
         "@type": "Answer",
         text: "Code Innova está ubicada en Tarragona, España. Trabajamos con clientes de toda España y ofrecemos reuniones presenciales o por videollamada según la preferencia del cliente.",
@@ -164,7 +164,7 @@ const localBusinessSchema = {
   },
   priceRange: "$$",
   description:
-    "Agencia de desarrollo web y software a medida en Tarragona. Especializados en aplicaciones web, e-commerce, SaaS y servidores cloud con más de 10 años de experiencia.",
+    "Especialistas en desarrollo web y software a medida en Tarragona. Aplicaciones web, e-commerce, SaaS y servidores cloud con más de 10 años de experiencia.",
   knowsAbout: [
     "Desarrollo web",
     "Software a medida",

@@ -1,6 +1,6 @@
 ## Code Innova Web
 
-Landing page de presentación de servicios desarrollada con **Next.js 16 (App Router)** y **Tailwind CSS**, pensada para una agencia/estudio de desarrollo como Code Innova.
+Landing page de presentación de servicios desarrollada con **Next.js 16 (App Router)** y **Tailwind CSS**, pensada para una empresa/estudio de desarrollo como Code Innova.
 
 ### Características principales
 

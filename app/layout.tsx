@@ -12,14 +12,14 @@ const BASE_URL = "https://codeinnova.es";
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "Code Innova | Agencia de desarrollo web y software a medida en Tarragona",
+    default: "Code Innova | Especialistas en desarrollo web y software a medida en Tarragona",
     template: "%s | Code Innova",
   },
   description:
-    "Agencia de desarrollo web y software a medida en Tarragona. Creamos aplicaciones web, e-commerce, SaaS y soluciones cloud escalables. +10 años de experiencia.",
+    "Especialistas en desarrollo web y software a medida en Tarragona. Creamos aplicaciones web, e-commerce, SaaS y soluciones cloud escalables. +10 años de experiencia.",
   keywords: [
     "desarrollo web Tarragona",
-    "agencia desarrollo software",
+    "especialistas desarrollo software",
     "software a medida",
     "desarrollo web a medida",
     "aplicaciones SaaS",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     "React",
     "Code Innova",
     "codeinnova",
-    "agencia digital Tarragona",
+    "especialistas desarrollo web Tarragona",
     "consultoría tecnológica",
   ],
   authors: [{ name: "Code Innova", url: BASE_URL }],
@@ -56,15 +56,15 @@ export const metadata: Metadata = {
     locale: "es_ES",
     url: BASE_URL,
     siteName: "Code Innova",
-    title: "Code Innova | Agencia de desarrollo web y software a medida en Tarragona",
+    title: "Code Innova | Especialistas en desarrollo web y software a medida en Tarragona",
     description:
-      "Agencia de desarrollo web y software a medida en Tarragona. Creamos aplicaciones web, e-commerce, SaaS y soluciones cloud escalables. +10 años de experiencia.",
+      "Especialistas en desarrollo web y software a medida en Tarragona. Creamos aplicaciones web, e-commerce, SaaS y soluciones cloud escalables. +10 años de experiencia.",
     images: [
       {
         url: `${BASE_URL}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: "Code Innova — Agencia de desarrollo web en Tarragona",
+        alt: "Code Innova — Especialistas en desarrollo web en Tarragona",
       },
     ],
   },
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
     site: "@codeinnova",
     title: "Code Innova | Desarrollo web y software a medida en Tarragona",
     description:
-      "Agencia de desarrollo web y software a medida en Tarragona. +10 años creando soluciones digitales escalables.",
+      "Especialistas en desarrollo web y software a medida en Tarragona. +10 años creando soluciones digitales escalables.",
     images: [`${BASE_URL}/og-image.png`],
     creator: "@codeinnova",
   },
@@ -92,7 +92,7 @@ const organizationSchema = {
   url: BASE_URL,
   logo: `${BASE_URL}/logo.png`,
   description:
-    "Agencia de desarrollo web y software a medida en Tarragona especializada en aplicaciones web, e-commerce, SaaS y servidores cloud.",
+    "Especialistas en desarrollo web y software a medida en Tarragona. Aplicaciones web, e-commerce, SaaS y servidores cloud.",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Tarragona",

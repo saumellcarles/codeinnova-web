@@ -12,10 +12,10 @@ export const metadata: Metadata = {
     "Reserva tu consultoría gratuita con Code Innova. En 30 minutos analizamos tu proyecto de desarrollo web o software y te damos una hoja de ruta clara. Sin compromiso.",
   keywords: [
     "consultoría gratuita desarrollo web",
-    "contacto agencia web Tarragona",
+    "contacto especialistas web Tarragona",
     "presupuesto desarrollo software",
     "consultoría tecnológica gratis",
-    "agencia digital Tarragona contacto",
+    "especialistas desarrollo web Tarragona contacto",
   ],
   alternates: {
     canonical: PAGE_URL,
