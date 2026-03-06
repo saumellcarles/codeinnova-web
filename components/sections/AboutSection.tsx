@@ -10,7 +10,7 @@ const TECH_STACK = [
   { name: "Next.js",      src: "/tech/nextjs.png",       pad: "p-1.5"  },
   { name: "Angular",      src: "/tech/angular.png",      pad: "p-1.5"  },
   { name: "React",        src: "/tech/react.png",        pad: "p-1.5"  },
-  { name: "Spring Boot",  src: "/tech/spring-boot.png",  pad: "p-1.5"  },
+  { name: "Spring Boot",  src: "/tech/spring-boot.png",  pad: "p-0"  },
   { name: "PostgreSQL",   src: "/tech/postgresql.png",   pad: "p-1.5"    },
   { name: "AWS",          src: "/tech/aws.png",          pad: "p-2"    },
   { name: "Google Cloud", src: "/tech/google-cloud.png", pad: "p-0"  },
