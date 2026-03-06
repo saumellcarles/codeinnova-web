@@ -116,13 +116,15 @@ export function AboutSection() {
             <div className="flex items-center justify-center gap-4 px-6 pb-2">
 
               {/* Stat */}
-              <div className="flex shrink-0 items-end gap-1.5">
+              <div className="flex shrink-0 items-center gap-1.5">
                 <span className="bg-gradient-to-r from-indigo-600 to-orange-500 bg-clip-text text-5xl font-black text-transparent leading-none md:text-6xl">
                   +10
                 </span>
-                <div className="mb-1 text-xs text-gray-500 leading-tight md:text-sm">
+                <div className="mb-1 text-xs leading-tight md:text-sm">
                   <p className="font-bold text-gray-800">Años de</p>
-                  <p>experiencia</p>
+                  <p className="text-gray-600">experiencia</p>
+                  <p className="text-gray-500">con tecnologías</p>
+                  <p className="text-gray-500">de vanguardia</p>
                 </div>
               </div>
 
