@@ -80,9 +80,14 @@ export function Header() {
   const closeTimer  = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const checkScroll = () => setScrolled(window.scrollY > 40);
+    checkScroll(); // Comprobar al montar (maneja restauración de scroll al refrescar)
+    const t = setTimeout(checkScroll, 50); // Re-check por si el navegador restaura scroll tras hidratación
+    window.addEventListener("scroll", checkScroll, { passive: true });
+    return () => {
+      clearTimeout(t);
+      window.removeEventListener("scroll", checkScroll);
+    };
   }, []);
 
   // Cierra el menú móvil en cambios de ruta
