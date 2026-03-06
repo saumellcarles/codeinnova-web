@@ -1,11 +1,14 @@
 "use client";
 
+import { useRef, useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { m } from "motion/react";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 import { sectionFadeInUp, sectionHeaderFadeIn } from "../../animations/marketingVariants";
 import { SectionLabel } from "../ui/SectionLabel";
+
+const ICONS_PER_PAGE = 4;
 
 const TECH_STACK = [
   { name: "Next.js",      src: "/tech/nextjs.png",       pad: "p-1.5"  },
@@ -22,6 +25,121 @@ const TECH_STACK = [
   { name: "WordPress",    src: "/tech/wordpress.png",    pad: "p-0.5"  },
   { name: "WooCommerce",  src: "/tech/woocommerce.png",  pad: "p-1"  },
 ];
+
+function TechStackBlock() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [activeDot, setActiveDot] = useState(0);
+  const pageCount = Math.ceil(TECH_STACK.length / ICONS_PER_PAGE);
+
+  const onScroll = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const page = Math.round(el.scrollLeft / el.offsetWidth);
+    setActiveDot(Math.min(page, pageCount - 1));
+  }, [pageCount]);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    el.addEventListener("scroll", onScroll, { passive: true });
+    return () => el.removeEventListener("scroll", onScroll);
+  }, [onScroll]);
+
+  const slides = Array.from({ length: pageCount }, (_, pageIdx) =>
+    TECH_STACK.slice(pageIdx * ICONS_PER_PAGE, pageIdx * ICONS_PER_PAGE + ICONS_PER_PAGE)
+  );
+
+  return (
+    <m.div
+      className="mt-10 border-t border-gray-100 pt-8"
+      initial={{ opacity: 0, y: 8 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.5 }}
+    >
+      {/* Desktop: stat + divider + iconos en fila */}
+      <div className="hidden items-center justify-center gap-4 md:flex">
+        <div className="flex shrink-0 items-center gap-1.5">
+          <span className="bg-gradient-to-r from-indigo-600 to-orange-500 bg-clip-text text-5xl font-black text-transparent leading-none md:text-6xl">
+            +10
+          </span>
+          <div className="mb-1 text-xs leading-tight md:text-sm">
+            <p className="font-bold text-gray-800">Años de</p>
+            <p className="text-gray-600">experiencia</p>
+            <p className="text-gray-500">con tecnologías</p>
+            <p className="text-gray-500">de vanguardia</p>
+          </div>
+        </div>
+        <div className="h-8 w-px shrink-0 bg-gray-200" />
+        {TECH_STACK.map((tech, i) => (
+          <m.div
+            key={tech.name}
+            className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-gray-200 bg-white shadow-sm transition hover:scale-105 hover:shadow-md ${tech.pad}`}
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.3, delay: 0.04 * i }}
+            title={tech.name}
+          >
+            <Image src={tech.src} alt={tech.name} width={32} height={32} className="h-full w-full object-contain" />
+          </m.div>
+        ))}
+      </div>
+
+      {/* Mobile: stat + divider arriba; carrusel 4 iconos + dots abajo, mismo margen lateral */}
+      <div className="flex flex-col gap-6 md:hidden">
+        <div className="flex items-center justify-center gap-4">
+          <div className="flex shrink-0 items-center gap-1.5">
+            <span className="bg-gradient-to-r from-indigo-600 to-orange-500 bg-clip-text text-5xl font-black text-transparent leading-none">
+              +10
+            </span>
+            <div className="mb-1 text-xs leading-tight">
+              <p className="font-bold text-gray-800">Años de</p>
+              <p className="text-gray-600">experiencia</p>
+              <p className="text-gray-500">con tecnologías</p>
+              <p className="text-gray-500">de vanguardia</p>
+            </div>
+          </div>
+          <div className="h-8 w-px shrink-0 bg-gray-200" />
+        </div>
+
+        <div>
+          <div
+            ref={scrollRef}
+            className="flex snap-x snap-mandatory overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          >
+            {slides.map((slideTechs, slideIdx) => (
+              <div
+                key={slideIdx}
+                className="flex min-w-full shrink-0 snap-center items-center justify-center gap-3"
+              >
+                {slideTechs.map((tech) => (
+                  <div
+                    key={tech.name}
+                    className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-gray-200 bg-white shadow-sm ${tech.pad}`}
+                    title={tech.name}
+                  >
+                    <Image src={tech.src} alt={tech.name} width={32} height={32} className="h-full w-full object-contain" />
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+          <div className="mt-4 flex justify-center gap-2">
+            {Array.from({ length: pageCount }).map((_, i) => (
+              <div
+                key={i}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  i === activeDot ? "w-4 bg-gray-700" : "w-1.5 bg-gray-300"
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </m.div>
+  );
+}
 
 const PILLARS = [
   {
@@ -99,50 +217,7 @@ export function AboutSection() {
         </div>
 
         {/* Stat + tech stack */}
-        <m.div
-          className="mt-10 border-t border-gray-100 pt-8"
-          initial={{ opacity: 0, y: 8 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.5 }}
-        >
-          {/* Stat + iconos en la misma fila, centrados — mobile y desktop */}
-          <div className="-mx-6 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            <div className="flex items-center justify-center gap-4 px-6 pb-2">
-
-              {/* Stat */}
-              <div className="flex shrink-0 items-center gap-1.5">
-                <span className="bg-gradient-to-r from-indigo-600 to-orange-500 bg-clip-text text-5xl font-black text-transparent leading-none md:text-6xl">
-                  +10
-                </span>
-                <div className="mb-1 text-xs leading-tight md:text-sm">
-                  <p className="font-bold text-gray-800">Años de</p>
-                  <p className="text-gray-600">experiencia</p>
-                  <p className="text-gray-500">con tecnologías</p>
-                  <p className="text-gray-500">de vanguardia</p>
-                </div>
-              </div>
-
-              <div className="h-8 w-px shrink-0 bg-gray-200" />
-
-              {/* Iconos */}
-              {TECH_STACK.map((tech, i) => (
-                <m.div
-                  key={tech.name}
-                  className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-gray-200 bg-white shadow-sm transition hover:scale-105 hover:shadow-md md:h-12 md:w-12 ${tech.pad}`}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: 0.04 * i }}
-                  title={tech.name}
-                >
-                  <Image src={tech.src} alt={tech.name} width={32} height={32} className="h-full w-full object-contain" />
-                </m.div>
-              ))}
-
-            </div>
-          </div>
-        </m.div>
+        <TechStackBlock />
       </div>
     </m.section>
   );
