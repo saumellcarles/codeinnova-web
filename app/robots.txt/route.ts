@@ -6,7 +6,30 @@ const BASE_URL = "https://codeinnova.es";
  * robots.txt for SEO and AI crawlers.
  * Includes reference to llms.txt for AI systems.
  */
+const DISALLOW = ["Disallow: /_next/", "Disallow: /api/"];
+
+const CRAWLERS = [
+  "*",
+  "GPTBot",
+  "OAI-SearchBot",
+  "ChatGPT-User",
+  "Claude-Web",
+  "ClaudeBot",
+  "anthropic-ai",
+  "Google-Extended",
+  "PerplexityBot",
+  "Applebot-Extended",
+  "FacebookBot",
+];
+
 export function GET() {
+  const blocks = CRAWLERS.flatMap((ua) => [
+    "",
+    `User-agent: ${ua}`,
+    "Allow: /",
+    ...DISALLOW,
+  ]);
+
   const lines = [
     "# robots.txt - Code Innova",
     "# https://codeinnova.es",
@@ -14,39 +37,7 @@ export function GET() {
     "# llms.txt: AI-optimized content (services, portfolio, contact)",
     `# ${BASE_URL}/llms.txt`,
     `LLMs: ${BASE_URL}/llms.txt`,
-    "",
-    "User-agent: *",
-    "Allow: /",
-    "",
-    "User-agent: GPTBot",
-    "Allow: /",
-    "",
-    "User-agent: OAI-SearchBot",
-    "Allow: /",
-    "",
-    "User-agent: ChatGPT-User",
-    "Allow: /",
-    "",
-    "User-agent: Claude-Web",
-    "Allow: /",
-    "",
-    "User-agent: ClaudeBot",
-    "Allow: /",
-    "",
-    "User-agent: anthropic-ai",
-    "Allow: /",
-    "",
-    "User-agent: Google-Extended",
-    "Allow: /",
-    "",
-    "User-agent: PerplexityBot",
-    "Allow: /",
-    "",
-    "User-agent: Applebot-Extended",
-    "Allow: /",
-    "",
-    "User-agent: FacebookBot",
-    "Allow: /",
+    ...blocks,
     "",
     `Sitemap: ${BASE_URL}/sitemap.xml`,
   ];
