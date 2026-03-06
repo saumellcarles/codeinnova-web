@@ -94,7 +94,7 @@ const organizationSchema = {
   },
   contactPoint: {
     "@type": "ContactPoint",
-    email: "info@codeinnova.com",
+    email: "info@codeinnova.es",
     contactType: "customer support",
     availableLanguage: ["Spanish"],
   },

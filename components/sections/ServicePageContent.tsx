@@ -21,7 +21,8 @@ export function ServicePageContent({ service, serviceSchema }: ServicePageConten
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-[#0a1628] to-slate-950 pt-32 pb-20 md:pt-40 md:pb-28">
-        <div aria-hidden className="pointer-events-none absolute inset-0">
+        {/* Blobs decorativos — ocultos en mobile */}
+        <div aria-hidden className="pointer-events-none absolute inset-0 hidden md:block">
           <div className="absolute -left-32 top-0 h-80 w-80 rounded-full bg-indigo-900/30 blur-3xl" />
           <div className="absolute -right-16 bottom-0 h-64 w-64 rounded-full bg-orange-600/10 blur-3xl" />
           <div
@@ -34,7 +35,7 @@ export function ServicePageContent({ service, serviceSchema }: ServicePageConten
           />
         </div>
 
-        <div className="relative mx-auto max-w-6xl px-4 md:px-6">
+        <div className="relative mx-auto max-w-6xl px-6">
           <nav className="mb-6 flex items-center gap-2 text-xs text-slate-500" aria-label="Breadcrumb">
             <Link href="/" className="transition-colors hover:text-slate-300">Inicio</Link>
             <span>/</span>
@@ -91,7 +92,7 @@ export function ServicePageContent({ service, serviceSchema }: ServicePageConten
 
       {/* Sobre el servicio + features */}
       <section className="bg-white py-16 md:py-24">
-        <div className="mx-auto max-w-6xl px-4 md:px-6">
+        <div className="mx-auto max-w-6xl px-6">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-start lg:gap-16">
             <div>
               <p className="font-mono text-xs font-semibold text-indigo-500">{"// Sobre el servicio"}</p>
@@ -131,7 +132,7 @@ export function ServicePageContent({ service, serviceSchema }: ServicePageConten
 
       {/* Pitch cards */}
       <section className="border-y border-gray-100 bg-gradient-to-br from-indigo-50 via-white to-violet-50/60 py-16 md:py-20">
-        <div className="mx-auto max-w-6xl px-4 md:px-6">
+        <div className="mx-auto max-w-6xl px-6">
           <div className="grid gap-6 md:grid-cols-2">
             {[
               { title: service.pitch1Title, text: service.pitch1Text },

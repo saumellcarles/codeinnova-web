@@ -26,15 +26,17 @@ export function Hero() {
       id="inicio"
       className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-[#0a1628] to-slate-950"
     >
-      <div aria-hidden className="pointer-events-none absolute inset-0">
+      {/* Blobs decorativos — ocultos en mobile (coste GPU alto) */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 hidden md:block">
         <div className="absolute -left-40 top-1/4 h-[500px] w-[500px] rounded-full bg-indigo-900/30 blur-3xl" />
         <div className="absolute -right-20 bottom-0 h-[400px] w-[400px] rounded-full bg-orange-500/10 blur-3xl" />
         <div className="absolute left-1/2 top-0 h-48 w-96 -translate-x-1/2 bg-blue-900/20 blur-3xl" />
       </div>
 
+      {/* Cuadrícula de fondo — oculta en mobile */}
       <div
         aria-hidden
-        className="absolute inset-0 opacity-[0.04]"
+        className="absolute inset-0 hidden opacity-[0.04] md:block"
         style={{
           backgroundImage:
             "linear-gradient(to right,#fff 1px,transparent 1px),linear-gradient(to bottom,#fff 1px,transparent 1px)",
@@ -42,7 +44,7 @@ export function Hero() {
         }}
       />
 
-      <div className="relative mx-auto max-w-6xl px-4 pt-28 pb-28 md:px-6 md:pt-36 md:pb-36">
+      <div className="relative mx-auto max-w-6xl px-6 pt-28 pb-28 md:pt-36 md:pb-36">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -55,7 +57,7 @@ export function Hero() {
         </motion.div>
 
         <motion.h1
-          className="mt-6 max-w-4xl text-4xl font-black uppercase leading-[1.05] tracking-tight text-white md:text-5xl lg:text-6xl xl:text-7xl"
+          className="mt-6 max-w-4xl text-3xl font-black uppercase leading-[1.05] tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
@@ -118,14 +120,14 @@ export function Hero() {
         </motion.div>
 
         <motion.div
-          className="mt-12 flex flex-wrap items-center gap-6 border-t border-white/10 pt-8 text-xs text-slate-500"
+          className="mt-12 flex flex-nowrap items-center gap-4 border-t border-white/10 pt-8 text-[11px] text-slate-500 md:gap-6 md:text-xs"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.55 }}
         >
           {STATS.map((s) => (
-            <div key={s.label} className="flex items-baseline gap-1.5">
-              <span className="text-xl font-bold text-white">{s.num}</span>
+            <div key={s.label} className="flex items-center gap-2">
+              <span className="text-base font-bold text-white md:text-xl">{s.num}</span>
               <span>{s.label}</span>
             </div>
           ))}

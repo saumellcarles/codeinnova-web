@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import { sectionFadeInUp, sectionHeaderFadeIn, getCardItemFadeIn } from "../../animations/marketingVariants";
+import { SnapCarousel } from "../ui/SnapCarousel";
 
 const STEPS = [
   {
@@ -38,13 +39,13 @@ export function ProcessSection() {
       className="relative overflow-hidden bg-gradient-to-br from-indigo-50 via-white to-violet-50/60 py-16 md:py-24"
       {...sectionFadeInUp}
     >
-      {/* Decoración de fondo */}
-      <div aria-hidden className="pointer-events-none absolute inset-0">
+      {/* Decoración de fondo — oculta en mobile */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 hidden md:block">
         <div className="absolute -left-24 top-0 h-72 w-72 rounded-full bg-indigo-200/30 blur-3xl" />
         <div className="absolute -right-16 bottom-0 h-64 w-64 rounded-full bg-violet-200/30 blur-3xl" />
         <div className="absolute left-1/2 top-1/2 h-px w-full -translate-y-1/2 bg-gradient-to-r from-transparent via-indigo-100 to-transparent" />
       </div>
-      <div className="relative mx-auto max-w-6xl px-4 md:px-6">
+      <div className="relative mx-auto max-w-6xl px-6">
         <motion.p className="font-mono text-xs font-semibold text-gray-400" {...sectionHeaderFadeIn}>
           <span className="text-indigo-500">// </span>Nuestra metodología
         </motion.p>
@@ -67,25 +68,40 @@ export function ProcessSection() {
         {/* Separador */}
         <div className="mt-8 h-px bg-gray-100 md:mt-12" />
 
-        <div className="mt-8 grid gap-6 md:mt-12 md:grid-cols-3">
+        {/* Mobile: carrusel de 1 tarjeta */}
+        <div className="mt-8">
+          <SnapCarousel count={STEPS.length} variant="light">
+            {STEPS.map((step) => (
+              <div key={step.num} className="min-w-full snap-center px-6 pb-2">
+                <div className={`relative rounded-2xl border p-6 ${step.border} ${step.bg}`}>
+                  <span className="absolute right-4 top-3 select-none font-black text-7xl text-black/[0.04]">
+                    {step.num}
+                  </span>
+                  <div className={`flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br text-sm font-black text-white shadow-sm ${step.accent}`}>
+                    {step.num}
+                  </div>
+                  <h3 className="mt-4 text-base font-bold text-gray-900">{step.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-gray-600">{step.text}</p>
+                </div>
+              </div>
+            ))}
+          </SnapCarousel>
+        </div>
+
+        {/* Desktop: grid de 3 columnas */}
+        <div className="mt-8 hidden gap-6 md:mt-12 md:grid md:grid-cols-3">
           {STEPS.map((step, i) => (
             <motion.div
               key={step.num}
               className={`relative rounded-2xl border p-6 ${step.border} ${step.bg}`}
               {...getCardItemFadeIn(i)}
             >
-              {/* Número grande de fondo */}
-              <span className="absolute right-4 top-3 font-black text-7xl text-black/[0.04] select-none">
+              <span className="absolute right-4 top-3 select-none font-black text-7xl text-black/[0.04]">
                 {step.num}
               </span>
-
-              {/* Número badge */}
-              <div
-                className={`flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br text-sm font-black text-white shadow-sm ${step.accent}`}
-              >
+              <div className={`flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br text-sm font-black text-white shadow-sm ${step.accent}`}>
                 {step.num}
               </div>
-
               <h3 className="mt-4 text-base font-bold text-gray-900">{step.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-gray-600">{step.text}</p>
             </motion.div>

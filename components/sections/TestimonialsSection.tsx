@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import { StarFilledIcon } from "@radix-ui/react-icons";
 import { sectionFadeInUp, sectionHeaderFadeIn, getCardItemFadeIn } from "../../animations/marketingVariants";
+import { SnapCarousel } from "../ui/SnapCarousel";
 
 const TESTIMONIALS = [
   {
@@ -56,22 +57,22 @@ export function TestimonialsSection() {
       className="relative overflow-hidden bg-slate-950 py-16 md:py-24"
       {...sectionFadeInUp}
     >
-      {/* Patrón de puntos sutil */}
+      {/* Patrón de puntos sutil — oculto en mobile */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-[0.06]"
+        className="pointer-events-none absolute inset-0 hidden opacity-[0.06] md:block"
         style={{
           backgroundImage: "radial-gradient(circle, #fff 1px, transparent 1px)",
           backgroundSize: "28px 28px",
         }}
       />
-      {/* Blobs de color */}
-      <div aria-hidden className="pointer-events-none absolute inset-0">
+      {/* Blobs de color — ocultos en mobile */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 hidden md:block">
         <div className="absolute -left-32 top-0 h-80 w-80 rounded-full bg-indigo-700/20 blur-3xl" />
         <div className="absolute -right-24 bottom-0 h-72 w-72 rounded-full bg-orange-600/10 blur-3xl" />
       </div>
 
-      <div className="relative mx-auto max-w-6xl px-4 md:px-6">
+      <div className="relative mx-auto max-w-6xl px-6">
         <motion.p className="font-mono text-xs font-semibold text-slate-500" {...sectionHeaderFadeIn}>
           <span className="text-orange-400">// </span>CLIENTES
         </motion.p>
@@ -85,14 +86,46 @@ export function TestimonialsSection() {
           </h2>
         </motion.header>
 
-        <div className="mt-10 columns-1 gap-4 md:columns-2 lg:columns-3">
+        {/* Mobile: carrusel de 1 tarjeta */}
+        <div className="mt-8">
+          <SnapCarousel count={TESTIMONIALS.length} variant="dark">
+            {TESTIMONIALS.map((t) => (
+              <div key={`${t.name}-${t.company}`} className="min-w-full snap-center px-6 pb-2">
+                <article className="rounded-2xl border border-white/10 bg-white/5 p-5">
+                  <div className="flex gap-0.5" aria-label={`${t.stars ?? 5} estrellas`}>
+                    {Array.from({ length: 5 }).map((_, j) => (
+                      <StarFilledIcon
+                        key={j}
+                        className={`h-3.5 w-3.5 ${j < (t.stars ?? 5) ? "text-amber-400" : "text-white/15"}`}
+                      />
+                    ))}
+                  </div>
+                  <p className="mt-3 text-sm leading-relaxed text-slate-300">
+                    &ldquo;{t.quote}&rdquo;
+                  </p>
+                  <div className="mt-4 flex items-center gap-3">
+                    <div className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-bold ${t.color}`} aria-hidden>
+                      {t.initials}
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold text-white">{t.name}</p>
+                      <p className="text-xs text-slate-500">{t.company}</p>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            ))}
+          </SnapCarousel>
+        </div>
+
+        {/* Desktop: masonry columns */}
+        <div className="mt-10 hidden columns-2 gap-4 lg:columns-3 md:block">
           {TESTIMONIALS.map((t, i) => (
             <motion.article
               key={`${t.name}-${t.company}`}
               className="mb-4 break-inside-avoid rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm transition hover:bg-white/10"
               {...getCardItemFadeIn(i)}
             >
-              {/* Stars */}
               <div className="flex gap-0.5" aria-label={`${t.stars ?? 5} estrellas`}>
                 {Array.from({ length: 5 }).map((_, j) => (
                   <StarFilledIcon
@@ -101,18 +134,11 @@ export function TestimonialsSection() {
                   />
                 ))}
               </div>
-
-              {/* Quote */}
               <p className="mt-3 text-sm leading-relaxed text-slate-300">
                 &ldquo;{t.quote}&rdquo;
               </p>
-
-              {/* Author */}
               <div className="mt-4 flex items-center gap-3">
-                <div
-                  className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-bold ${t.color}`}
-                  aria-hidden
-                >
+                <div className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-bold ${t.color}`} aria-hidden>
                   {t.initials}
                 </div>
                 <div>

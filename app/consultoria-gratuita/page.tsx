@@ -38,7 +38,7 @@ const contactPageSchema = {
   mainEntity: {
     "@type": "Organization",
     name: "Code Innova",
-    email: "info@codeinnova.com",
+    email: "info@codeinnova.es",
     url: BASE_URL,
   },
 };
@@ -81,7 +81,7 @@ export default function ContactPage() {
           />
         </div>
 
-        <div className="relative mx-auto max-w-6xl px-4 md:px-6">
+        <div className="relative mx-auto max-w-6xl px-6">
           <p className="font-mono text-xs font-semibold uppercase tracking-[0.3em] text-orange-400">
             {"// Hablemos"}
           </p>
@@ -100,7 +100,7 @@ export default function ContactPage() {
 
       {/* Contenido principal */}
       <section className="relative bg-gray-50 py-12 md:py-16">
-        <div className="mx-auto max-w-7xl px-4 md:px-6">
+        <div className="mx-auto max-w-7xl px-6">
           <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:gap-8">
 
             {/* Izquierda: info */}
@@ -126,10 +126,10 @@ export default function ContactPage() {
                   Email directo
                 </div>
                 <a
-                  href="mailto:info@codeinnova.com"
+                  href="mailto:info@codeinnova.es"
                   className="mt-1 block text-sm font-semibold text-indigo-600 hover:text-indigo-500 transition-colors"
                 >
-                  info@codeinnova.com
+                  info@codeinnova.es
                 </a>
               </div>
             </div>

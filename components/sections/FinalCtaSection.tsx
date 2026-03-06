@@ -23,8 +23,8 @@ export function FinalCtaSection({ variant = "dark" }: FinalCtaSectionProps) {
       }`}
       {...sectionFadeInUp}
     >
-      {/* Background blobs */}
-      <div aria-hidden className="pointer-events-none absolute inset-0">
+      {/* Background blobs — ocultos en mobile */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 hidden md:block">
         <div
           className={`absolute left-1/2 top-0 h-80 w-96 -translate-x-1/2 rounded-full blur-3xl ${
             isLight ? "bg-indigo-200/40" : "bg-indigo-900/30"
@@ -37,7 +37,7 @@ export function FinalCtaSection({ variant = "dark" }: FinalCtaSectionProps) {
         />
       </div>
 
-      <div className="relative mx-auto max-w-3xl px-4 text-center md:px-6">
+      <div className="relative mx-auto max-w-3xl px-6 text-center">
         <motion.span
           className={`inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold ${
             isLight
@@ -96,14 +96,14 @@ export function FinalCtaSection({ variant = "dark" }: FinalCtaSectionProps) {
             <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
           </Link>
           <a
-            href="mailto:info@codeinnova.com"
+            href="mailto:info@codeinnova.es"
             className={`inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-sm font-medium transition ${
               isLight
                 ? "border border-gray-200 text-gray-600 hover:border-gray-400 hover:text-gray-900"
                 : "border border-white/15 text-slate-300 hover:border-white/30 hover:text-white"
             }`}
           >
-            info@codeinnova.com
+            info@codeinnova.es
           </a>
         </motion.div>
       </div>

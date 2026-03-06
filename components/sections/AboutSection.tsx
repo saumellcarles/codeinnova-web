@@ -89,7 +89,7 @@ export function AboutSection() {
       className="border-b border-gray-200 bg-white py-16 md:py-24"
       {...sectionFadeInUp}
     >
-      <div className="mx-auto max-w-6xl px-4 md:px-6">
+      <div className="mx-auto max-w-6xl px-6 md:px-6">
         {/* Section label — estilo // como en codeinnova.com */}
         <motion.p
           className="font-mono text-xs font-semibold text-gray-400"
@@ -149,13 +149,44 @@ export function AboutSection() {
         {/* Stat + tech stack — ancho completo del landing, fuera del grid */}
         <motion.div
           className="mt-10 border-t border-gray-100 pt-8"
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="flex w-full items-center gap-6">
-            {/* Número */}
+          {/* Mobile: stat arriba + iconos debajo a ancho completo.
+               Desktop: fila única stat | separador | iconos equidistantes */}
+
+          {/* Fila stat — solo visible en mobile, centrada */}
+          <div className="flex items-end justify-center gap-2 md:hidden">
+            <span className="bg-gradient-to-r from-indigo-600 to-orange-500 bg-clip-text text-7xl font-black text-transparent leading-none">
+              +10
+            </span>
+            <div className="mb-2 text-sm text-gray-500 leading-tight">
+              <p className="font-bold text-gray-800">Años de</p>
+              <p>experiencia</p>
+            </div>
+          </div>
+
+          {/* Iconos — fila a ancho completo en mobile, con margen superior */}
+          <div className="mt-6 flex w-full items-center justify-between md:hidden">
+            {TECH_STACK.map((tech, i) => (
+              <motion.div
+                key={tech.name}
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 bg-gray-50"
+                initial={{ opacity: 0, scale: 0.7 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: 0.04 * i }}
+                title={tech.name}
+              >
+                <tech.Icon />
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Fila completa — solo visible en desktop */}
+          <div className="hidden items-center gap-6 md:flex">
             <div className="flex shrink-0 items-end gap-2">
               <span className="bg-gradient-to-r from-indigo-600 to-orange-500 bg-clip-text text-7xl font-black text-transparent leading-none">
                 +10
@@ -165,11 +196,7 @@ export function AboutSection() {
                 <p>experiencia</p>
               </div>
             </div>
-
-            {/* Separador vertical */}
             <div className="h-10 w-px shrink-0 bg-gray-200" />
-
-            {/* Tech stack — ocupa todo el espacio restante, iconos equidistantes */}
             <div className="flex flex-1 items-center justify-between">
               {TECH_STACK.map((tech, i) => (
                 <motion.div
@@ -180,9 +207,9 @@ export function AboutSection() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: 0.04 * i }}
                   title={tech.name}
-                    >
-                      <tech.Icon />
-                    </motion.div>
+                >
+                  <tech.Icon />
+                </motion.div>
               ))}
             </div>
           </div>

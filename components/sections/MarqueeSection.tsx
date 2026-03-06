@@ -25,8 +25,8 @@ export function MarqueeSection({
 
   const isDark = variant === "dark";
 
-  // Repetimos el texto 12 veces para que el ciclo sea imperceptible
-  const repeated = Array.from({ length: 12 }, (_, i) => (
+  // 8 repeticiones son suficientes para un ciclo imperceptible
+  const repeated = Array.from({ length: 8 }, (_, i) => (
     <span key={i} className="px-4">
       {text}
     </span>

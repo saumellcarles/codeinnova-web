@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { Tabs } from "@radix-ui/themes";
 import { ArrowTopRightIcon, PlusIcon } from "@radix-ui/react-icons";
 import { sectionFadeInUp, sectionHeaderFadeIn } from "../../animations/marketingVariants";
+import { SnapCarousel } from "../ui/SnapCarousel";
 
 const PAGE_SIZE = 3;
 
@@ -169,30 +170,42 @@ function FilteredGrid({ category }: { category: string }) {
   }
 
   return (
-    <div>
-      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        <AnimatePresence initial={false}>
-          {shown.map((p) => (
-            <ProjectCard key={p.id} p={p} />
-          ))}
-        </AnimatePresence>
-      </div>
+    <>
+      {/* Mobile: carrusel de 1 tarjeta */}
+      <SnapCarousel count={filtered.length} variant="light">
+        {filtered.map((p) => (
+          <div key={p.id} className="min-w-full snap-center px-6 pb-2">
+            <ProjectCard p={p} />
+          </div>
+        ))}
+      </SnapCarousel>
 
-      {hasMore && (
-        <div className="mt-8 flex justify-center">
-          <button
-            onClick={() => setVisible((v) => v + PAGE_SIZE)}
-            className="group inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-6 py-2.5 text-sm font-semibold text-gray-700 shadow-sm transition hover:border-gray-300 hover:bg-gray-50 hover:shadow-md"
-          >
-            <PlusIcon className="h-4 w-4 transition-transform group-hover:rotate-90" />
-            Ver más proyectos
-            <span className="rounded-full bg-gray-100 px-2 py-0.5 text-xs text-gray-500">
-              {filtered.length - visible} restantes
-            </span>
-          </button>
+      {/* Desktop: grid con paginación */}
+      <div className="hidden md:block">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <AnimatePresence initial={false}>
+            {shown.map((p) => (
+              <ProjectCard key={p.id} p={p} />
+            ))}
+          </AnimatePresence>
         </div>
-      )}
-    </div>
+
+        {hasMore && (
+          <div className="mt-8 flex justify-center">
+            <button
+              onClick={() => setVisible((v) => v + PAGE_SIZE)}
+              className="group inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-6 py-2.5 text-sm font-semibold text-gray-700 shadow-sm transition hover:border-gray-300 hover:bg-gray-50 hover:shadow-md"
+            >
+              <PlusIcon className="h-4 w-4 transition-transform group-hover:rotate-90" />
+              Ver más proyectos
+              <span className="rounded-full bg-gray-100 px-2 py-0.5 text-xs text-gray-500">
+                {filtered.length - visible} restantes
+              </span>
+            </button>
+          </div>
+        )}
+      </div>
+    </>
   );
 }
 
@@ -205,26 +218,22 @@ export function PortfolioSection() {
       className="relative overflow-hidden bg-gradient-to-b from-gray-50 via-white to-gray-50/80 py-16 md:py-24"
       {...sectionFadeInUp}
     >
-      {/* Cuadrícula decorativa */}
+      {/* Cuadrícula decorativa — oculta en mobile */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-[0.035]"
+        className="pointer-events-none absolute inset-0 hidden opacity-[0.035] md:block"
         style={{
           backgroundImage:
             "linear-gradient(to right, #6366f1 1px, transparent 1px), linear-gradient(to bottom, #6366f1 1px, transparent 1px)",
           backgroundSize: "48px 48px",
         }}
       />
-      {/* Gradiente de borde superior */}
-      <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-indigo-300/50 to-transparent" />
-      {/* Gradiente de borde inferior */}
-      <div aria-hidden className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-orange-300/40 to-transparent" />
-      {/* Blobs */}
-      <div aria-hidden className="pointer-events-none absolute inset-0">
+      {/* Blobs — ocultos en mobile */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 hidden md:block">
         <div className="absolute right-0 top-0 h-72 w-72 -translate-y-1/2 translate-x-1/3 rounded-full bg-indigo-100/60 blur-3xl" />
         <div className="absolute bottom-0 left-0 h-64 w-64 translate-y-1/3 -translate-x-1/4 rounded-full bg-orange-100/50 blur-3xl" />
       </div>
-      <div className="relative mx-auto max-w-6xl px-4 md:px-6">
+      <div className="relative mx-auto max-w-6xl px-6">
         <motion.p className="font-mono text-xs font-semibold text-gray-400" {...sectionHeaderFadeIn}>
           <span className="text-indigo-500">// </span>Nuestro portfolio
         </motion.p>

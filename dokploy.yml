@@ -1,9 +1,9 @@
-app_name: app              # Nombre de tu aplicación
-app_dir: ./                   # Carpeta raíz donde está package.json
+app_name: app
+app_dir: ./
 build:
-  command: "pnpm install && pnpm run build"  # Instala dependencias y construye la app
+  command: "pnpm install && pnpm run build"
 deploy:
-  command: "pnpm start"        # Comando para iniciar la app
+  command: "pnpm start"
 domain:
   - codeinnova.es
   - www.codeinnova.es

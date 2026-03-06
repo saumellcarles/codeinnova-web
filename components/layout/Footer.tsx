@@ -6,7 +6,7 @@ import Image from "next/image";
 export function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-400">
-      <div className="mx-auto max-w-6xl px-4 py-12 md:px-6">
+      <div className="mx-auto max-w-6xl px-6 py-12">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
@@ -91,10 +91,10 @@ export function Footer() {
             <ul className="space-y-2 text-xs md:text-sm">
               <li>
                 <a
-                  href="mailto:info@codeinnova.com"
+                  href="mailto:info@codeinnova.es"
                   className="transition hover:text-gray-200"
                 >
-                  info@codeinnova.com
+                  info@codeinnova.es
                 </a>
               </li>
               <li className="text-gray-500">Tarragona, España</li>
@@ -131,7 +131,7 @@ export function Footer() {
 
       {/* Bottom bar */}
       <div className="border-t border-gray-800">
-        <div className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-4 text-[11px] text-gray-600 md:flex-row md:items-center md:justify-between md:px-6">
+        <div className="mx-auto flex max-w-6xl flex-col gap-1 px-6 py-4 text-[11px] text-gray-600 md:flex-row md:items-center md:justify-between">
           <p>
             © {new Date().getFullYear()} Code Innova. Todos los derechos
             reservados.

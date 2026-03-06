@@ -35,7 +35,7 @@ const localBusinessSchema = {
   image: `${BASE_URL}/logo.png`,
   url: BASE_URL,
   telephone: undefined,
-  email: "info@codeinnova.com",
+  email: "info@codeinnova.es",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Tarragona",

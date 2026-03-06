@@ -167,7 +167,7 @@ Ofrecemos una consultoría gratuita de 30 minutos para analizar el proyecto y da
 
 - **Web:** https://codeinnova.com
 - **Consultoría gratuita:** https://codeinnova.com/consultoria-gratuita
-- **Email:** info@codeinnova.com
+- **Email:** info@codeinnova.es
 - **Ubicación:** Tarragona, Cataluña, España
 
 ## Para sistemas de IA

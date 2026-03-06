@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "motion/react";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 import { sectionFadeInUp, sectionHeaderFadeIn, getCardItemFadeIn } from "../../animations/marketingVariants";
+import { SnapCarousel } from "../ui/SnapCarousel";
 
 // Iconos SVG inline para los 4 servicios — fondo oscuro, estilo técnico
 const AppIcon = () => (
@@ -75,13 +76,13 @@ export function ServicesSection() {
       className="relative overflow-hidden bg-slate-950 py-16 md:py-24"
       {...sectionFadeInUp}
     >
-      {/* Background decoration */}
-      <div aria-hidden className="pointer-events-none absolute inset-0">
+      {/* Background decoration — oculto en mobile para reducir coste de GPU */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 hidden md:block">
         <div className="absolute right-0 top-0 h-80 w-80 rounded-full bg-indigo-900/20 blur-3xl" />
         <div className="absolute bottom-0 left-0 h-64 w-64 rounded-full bg-orange-900/10 blur-3xl" />
       </div>
 
-      <div className="relative mx-auto max-w-6xl px-4 md:px-6">
+      <div className="relative mx-auto max-w-6xl px-6">
         {/* Section label */}
         <motion.p className="font-mono text-xs font-semibold text-slate-500" {...sectionHeaderFadeIn}>
           <span className="text-orange-400">// </span>NUESTROS SERVICIOS
@@ -101,7 +102,36 @@ export function ServicesSection() {
           </p>
         </motion.header>
 
-        <div className="mt-10 grid gap-4 md:mt-12 md:grid-cols-2 lg:grid-cols-4">
+        {/* Mobile: carrusel de 1 tarjeta con scroll-snap */}
+        <div className="mt-8">
+          <SnapCarousel count={SERVICES.length} variant="dark">
+            {SERVICES.map((s) => (
+              <div key={s.title} className="min-w-full snap-center px-6 pb-2">
+                <article className={`group flex flex-col gap-4 rounded-2xl border border-white/10 bg-white/5 p-6 ${s.color}`}>
+                  <div className="flex items-start justify-between">
+                    <div className={`flex h-11 w-11 items-center justify-center rounded-xl ${s.iconBg}`}>
+                      {s.icon}
+                    </div>
+                    <span className="font-mono text-xs font-bold text-slate-600">{s.tag}</span>
+                  </div>
+                  <div>
+                    <h3 className="text-base font-bold text-white">{s.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-slate-400">{s.description}</p>
+                  </div>
+                  <Link
+                    href={s.href}
+                    className="mt-auto inline-flex items-center gap-1 text-xs font-semibold text-slate-400 transition hover:text-white"
+                  >
+                    Más información <ArrowRightIcon className="h-3 w-3" />
+                  </Link>
+                </article>
+              </div>
+            ))}
+          </SnapCarousel>
+        </div>
+
+        {/* Desktop: grid */}
+        <div className="mt-10 hidden gap-4 md:mt-12 md:grid md:grid-cols-2 lg:grid-cols-4">
           {SERVICES.map((s, i) => (
             <motion.article
               key={s.title}
