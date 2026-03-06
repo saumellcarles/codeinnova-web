@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 import { sectionFadeInUp } from "../../animations/marketingVariants";
 
@@ -15,7 +15,7 @@ export function FinalCtaSection({ variant = "dark" }: FinalCtaSectionProps) {
   const isLight = variant === "light";
 
   return (
-    <motion.section
+    <m.section
       className={`relative overflow-hidden py-20 md:py-28 ${
         isLight
           ? "bg-gradient-to-br from-gray-50 via-white to-indigo-50/60"
@@ -38,7 +38,7 @@ export function FinalCtaSection({ variant = "dark" }: FinalCtaSectionProps) {
       </div>
 
       <div className="relative mx-auto max-w-3xl px-6 text-center">
-        <motion.span
+        <m.span
           className={`inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold ${
             isLight
               ? "border border-gray-200 bg-white text-gray-500 shadow-sm"
@@ -51,9 +51,9 @@ export function FinalCtaSection({ variant = "dark" }: FinalCtaSectionProps) {
         >
           <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" />
           Consultoría gratuita — sin compromiso
-        </motion.span>
+        </m.span>
 
-        <motion.h2
+        <m.h2
           className={`mt-5 text-2xl font-black uppercase tracking-tight md:text-3xl lg:text-5xl ${
             isLight ? "text-gray-900" : "text-white"
           }`}
@@ -66,9 +66,9 @@ export function FinalCtaSection({ variant = "dark" }: FinalCtaSectionProps) {
           <span className="bg-gradient-to-r from-indigo-500 to-orange-500 bg-clip-text text-transparent">
             tu negocio digital?
           </span>
-        </motion.h2>
+        </m.h2>
 
-        <motion.p
+        <m.p
           className={`mx-auto mt-5 max-w-xl text-base ${
             isLight ? "text-gray-500" : "text-slate-400"
           }`}
@@ -79,9 +79,9 @@ export function FinalCtaSection({ variant = "dark" }: FinalCtaSectionProps) {
         >
           Cuéntanos tu proyecto y te asesoramos sin compromiso. Nuestro equipo
           estudiará tu caso y te propondrá la mejor solución tecnológica.
-        </motion.p>
+        </m.p>
 
-        <motion.div
+        <m.div
           className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center"
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -105,8 +105,8 @@ export function FinalCtaSection({ variant = "dark" }: FinalCtaSectionProps) {
           >
             info@codeinnova.es
           </a>
-        </motion.div>
+        </m.div>
       </div>
-    </motion.section>
+    </m.section>
   );
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { m, AnimatePresence } from "motion/react";
 import { Tabs } from "@radix-ui/themes";
 import { ArrowTopRightIcon, PlusIcon } from "@radix-ui/react-icons";
 import { sectionFadeInUp, sectionHeaderFadeIn } from "../../animations/marketingVariants";
@@ -109,7 +109,7 @@ const TABS = [
 
 function ProjectCard({ p }: { p: Project }) {
   return (
-    <motion.article
+    <m.article
       className="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200 transition duration-300 hover:-translate-y-0.5 hover:shadow-md"
       initial={{ opacity: 0, y: 18 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -146,7 +146,7 @@ function ProjectCard({ p }: { p: Project }) {
         <h3 className="text-sm font-bold text-gray-900">{p.title}</h3>
         <p className="mt-1.5 text-xs leading-relaxed text-gray-500">{p.description}</p>
       </div>
-    </motion.article>
+    </m.article>
   );
 }
 
@@ -213,7 +213,7 @@ function FilteredGrid({ category }: { category: string }) {
 // Tabs Radix UI para filtrar por categoría.
 export function PortfolioSection() {
   return (
-    <motion.section
+    <m.section
       id="portfolio"
       className="relative overflow-hidden bg-gradient-to-b from-gray-50 via-white to-gray-50/80 py-16 md:py-24"
       {...sectionFadeInUp}
@@ -234,18 +234,18 @@ export function PortfolioSection() {
         <div className="absolute bottom-0 left-0 h-64 w-64 translate-y-1/3 -translate-x-1/4 rounded-full bg-orange-100/50 blur-3xl" />
       </div>
       <div className="relative mx-auto max-w-6xl px-6">
-        <motion.p className="font-mono text-xs font-semibold text-gray-400" {...sectionHeaderFadeIn}>
+        <m.p className="font-mono text-xs font-semibold text-gray-400" {...sectionHeaderFadeIn}>
           <span className="text-indigo-500">// </span>Nuestro portfolio
-        </motion.p>
+        </m.p>
 
-        <motion.header className="mt-4 max-w-xl" {...sectionHeaderFadeIn}>
+        <m.header className="mt-4 max-w-xl" {...sectionHeaderFadeIn}>
           <h2 className="text-2xl font-bold tracking-tight text-gray-900 md:text-3xl lg:text-4xl">
             Puedes ver alguno de{" "}
             <span className="bg-gradient-to-r from-indigo-600 to-orange-500 bg-clip-text text-transparent">
               nuestros proyectos
             </span>
           </h2>
-        </motion.header>
+        </m.header>
 
         <div className="mt-8">
           <Tabs.Root defaultValue="all">
@@ -269,6 +269,6 @@ export function PortfolioSection() {
           </Tabs.Root>
         </div>
       </div>
-    </motion.section>
+    </m.section>
   );
 }

@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "motion/react";
+import { m, AnimatePresence } from "motion/react";
 import { ArrowRightIcon, ChevronDownIcon } from "@radix-ui/react-icons";
 
 const SERVICE_ITEMS = [
@@ -123,7 +123,7 @@ export function Header() {
   return (
     <>
       <div className="pointer-events-none fixed inset-x-0 top-0 z-50 flex justify-center px-4 pt-4">
-        <motion.header
+        <m.header
           className={`pointer-events-auto w-full max-w-5xl rounded-2xl border px-4 py-2.5 backdrop-blur-xl transition-[box-shadow,background-color,border-color] duration-300 md:px-5 md:py-3 ${
             isLight
               ? "border-gray-200/80 bg-white/95 shadow-lg shadow-black/8"
@@ -173,17 +173,17 @@ export function Header() {
                           className={`inline-flex items-center gap-1 ${baseBtn}`}
                         >
                           {item.label}
-                          <motion.span
+                          <m.span
                             animate={{ rotate: servicesOpen ? 180 : 0 }}
                             transition={{ duration: 0.2 }}
                           >
                             <ChevronDownIcon className="h-3 w-3" />
-                          </motion.span>
+                          </m.span>
                         </button>
 
                         <AnimatePresence>
                           {servicesOpen && (
-                            <motion.div
+                            <m.div
                               key="services-dropdown"
                               className="absolute left-1/2 top-full z-50 mt-2 w-64 -translate-x-1/2 overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-xl shadow-black/10"
                               initial={{ opacity: 0, y: -6, scale: 0.97 }}
@@ -223,7 +223,7 @@ export function Header() {
                                   );
                                 })}
                               </ul>
-                            </motion.div>
+                            </m.div>
                           )}
                         </AnimatePresence>
                       </li>
@@ -264,31 +264,31 @@ export function Header() {
               aria-expanded={mobileOpen}
               aria-label={mobileOpen ? "Cerrar menú" : "Abrir menú"}
             >
-              <motion.span
+              <m.span
                 className={`block h-[2px] w-5 origin-center rounded-full ${isLight ? "bg-gray-700" : "bg-white"}`}
                 animate={mobileOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
                 transition={{ duration: 0.2 }}
               />
-              <motion.span
+              <m.span
                 className={`block h-[2px] w-5 rounded-full ${isLight ? "bg-gray-700" : "bg-white"}`}
                 animate={mobileOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
                 transition={{ duration: 0.15 }}
               />
-              <motion.span
+              <m.span
                 className={`block h-[2px] w-5 origin-center rounded-full ${isLight ? "bg-gray-700" : "bg-white"}`}
                 animate={mobileOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
                 transition={{ duration: 0.2 }}
               />
             </button>
           </div>
-        </motion.header>
+        </m.header>
       </div>
 
       {/* Mobile panel */}
       <AnimatePresence>
         {mobileOpen && (
           <>
-            <motion.div
+            <m.div
               key="backdrop"
               className="fixed inset-0 z-40 bg-black/30 backdrop-blur-sm md:hidden"
               initial={{ opacity: 0 }}
@@ -297,7 +297,7 @@ export function Header() {
               transition={{ duration: 0.2 }}
               onClick={() => setMobileOpen(false)}
             />
-            <motion.div
+            <m.div
               key="mobile-panel"
               className="fixed inset-x-4 top-[76px] z-50 overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-2xl shadow-black/15 md:hidden"
               initial={{ opacity: 0, y: -6, scale: 0.97 }}
@@ -312,7 +312,7 @@ export function Header() {
 
                     if (item.type === "dropdown") {
                       return (
-                        <motion.li
+                        <m.li
                           key={item.section}
                           initial={{ opacity: 0, x: -10 }}
                           animate={{ opacity: 1, x: 0 }}
@@ -327,17 +327,17 @@ export function Header() {
                             }`}
                           >
                             {item.label}
-                            <motion.span
+                            <m.span
                               animate={{ rotate: mobileServicesOpen ? 180 : 0 }}
                               transition={{ duration: 0.2 }}
                             >
                               <ChevronDownIcon className="h-3.5 w-3.5" />
-                            </motion.span>
+                            </m.span>
                           </button>
 
                           <AnimatePresence>
                             {mobileServicesOpen && (
-                              <motion.ul
+                              <m.ul
                                 initial={{ height: 0, opacity: 0 }}
                                 animate={{ height: "auto", opacity: 1 }}
                                 exit={{ height: 0, opacity: 0 }}
@@ -365,15 +365,15 @@ export function Header() {
                                     </li>
                                   );
                                 })}
-                              </motion.ul>
+                              </m.ul>
                             )}
                           </AnimatePresence>
-                        </motion.li>
+                        </m.li>
                       );
                     }
 
                     return (
-                      <motion.li
+                      <m.li
                         key={item.section}
                         initial={{ opacity: 0, x: -10 }}
                         animate={{ opacity: 1, x: 0 }}
@@ -389,12 +389,12 @@ export function Header() {
                         >
                           {item.label}
                         </button>
-                      </motion.li>
+                      </m.li>
                     );
                   })}
                 </ul>
 
-                <motion.div
+                <m.div
                   className="mt-2 border-t border-gray-100 p-2 pt-3"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -408,9 +408,9 @@ export function Header() {
                     Hablemos
                     <ArrowRightIcon className="h-4 w-4" />
                   </Link>
-                </motion.div>
+                </m.div>
               </nav>
-            </motion.div>
+            </m.div>
           </>
         )}
       </AnimatePresence>

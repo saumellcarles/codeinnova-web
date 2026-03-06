@@ -2,6 +2,11 @@ export interface ServiceFeature {
   text: string;
 }
 
+export interface ServiceFaq {
+  question: string;
+  answer: string;
+}
+
 export interface ServiceData {
   slug: string;
   title: string;
@@ -19,6 +24,7 @@ export interface ServiceData {
   seoTitle: string;
   seoDescription: string;
   keywords: string[];
+  faqs: ServiceFaq[];
 }
 
 export const SERVICES: ServiceData[] = [
@@ -57,6 +63,28 @@ export const SERVICES: ServiceData[] = [
       "arquitecturas escalables",
       "CI/CD cloud",
     ],
+    faqs: [
+      {
+        question: "¿Qué es una aplicación web a medida?",
+        answer:
+          "Una aplicación web a medida es un software desarrollado específicamente para las necesidades de tu negocio, a diferencia de soluciones genéricas. Permite automatizar procesos, gestionar datos y ofrecer funcionalidades únicas que no existen en productos estándar.",
+      },
+      {
+        question: "¿Cuánto cuesta desarrollar una aplicación web a medida?",
+        answer:
+          "El coste depende de la complejidad y funcionalidades requeridas. Las aplicaciones web a medida suelen partir desde 5.000€ para proyectos básicos y pueden superar los 20.000€ para sistemas complejos con integraciones avanzadas. Ofrecemos una consultoría gratuita para darte un presupuesto personalizado.",
+      },
+      {
+        question: "¿Cuánto tiempo tarda en desarrollarse una aplicación web?",
+        answer:
+          "El tiempo de desarrollo varía según la complejidad. Un MVP (producto mínimo viable) puede estar listo en 8-12 semanas, mientras que aplicaciones más complejas pueden requerir 4-6 meses. Trabajamos con metodología ágil para entregar valor desde las primeras semanas.",
+      },
+      {
+        question: "¿Qué tecnologías utilizáis para el desarrollo de aplicaciones web?",
+        answer:
+          "Utilizamos tecnologías modernas y probadas: Next.js y React para el frontend, Spring Boot o Node.js para el backend, PostgreSQL o MongoDB para bases de datos, y AWS o Google Cloud para el despliegue. Elegimos la stack más adecuada para cada proyecto.",
+      },
+    ],
   },
   {
     slug: "sitios-web",
@@ -92,6 +120,28 @@ export const SERVICES: ServiceData[] = [
       "páginas web responsive",
       "SEO web Tarragona",
       "diseño web corporativo",
+    ],
+    faqs: [
+      {
+        question: "¿Cuánto cuesta una página web profesional en Tarragona?",
+        answer:
+          "El coste de una página web profesional varía según las necesidades. Un sitio web corporativo básico puede costar desde 1.500€, mientras que proyectos más completos con múltiples secciones, blog y optimización SEO pueden llegar a 4.000-6.000€. Contacta con nosotros para un presupuesto sin compromiso.",
+      },
+      {
+        question: "¿Cuánto tiempo tarda en estar lista mi página web?",
+        answer:
+          "El plazo habitual para un sitio web corporativo es de 2 a 4 semanas desde el inicio del proyecto, dependiendo de la cantidad de páginas y la disponibilidad de los contenidos por parte del cliente.",
+      },
+      {
+        question: "¿Las webs que desarrolláis están optimizadas para SEO?",
+        answer:
+          "Sí, todas nuestras webs se desarrollan con optimización SEO desde el primer día: estructura semántica HTML5, velocidad de carga optimizada, metadatos correctos, sitemap y robots.txt, y buenas prácticas de Google Core Web Vitals.",
+      },
+      {
+        question: "¿La web funcionará bien en móvil y tablet?",
+        answer:
+          "Absolutamente. Todas nuestras webs son 100% responsive y se adaptan a cualquier tamaño de pantalla: móvil, tablet y escritorio. También optimizamos el rendimiento en dispositivos móviles para una experiencia rápida.",
+      },
     ],
   },
   {
@@ -129,6 +179,28 @@ export const SERVICES: ServiceData[] = [
       "Stripe Tarragona",
       "SEO e-commerce",
     ],
+    faqs: [
+      {
+        question: "¿Cuánto cuesta crear una tienda online?",
+        answer:
+          "El coste de una tienda online depende del número de productos y funcionalidades requeridas. Una tienda básica puede partir desde 2.500€ e incluye diseño, catálogo de productos, pasarela de pago y SEO básico. Para proyectos más complejos contacta con nosotros para un presupuesto personalizado.",
+      },
+      {
+        question: "¿Qué pasarelas de pago podéis integrar?",
+        answer:
+          "Integramos las principales pasarelas de pago: Stripe, PayPal, Redsys (para pagos con tarjeta en España), Bizum y transferencia bancaria. También podemos integrar soluciones de pago aplazado como Klarna o Sequra.",
+      },
+      {
+        question: "¿Puedo gestionar yo mismo los productos y pedidos?",
+        answer:
+          "Sí. Desarrollamos tiendas con paneles de administración intuitivos que permiten gestionar productos, stock, pedidos, clientes y cupones de descuento sin conocimientos técnicos. También ofrecemos formación y soporte tras el lanzamiento.",
+      },
+      {
+        question: "¿El e-commerce estará optimizado para aparecer en Google?",
+        answer:
+          "Sí. Implementamos SEO técnico específico para e-commerce: URLs amigables, datos estructurados de producto, schema de precio y disponibilidad, optimización de imágenes, velocidad de carga y Core Web Vitals para que tus productos aparezcan en Google Shopping y búsquedas orgánicas.",
+      },
+    ],
   },
   {
     slug: "servidores-cloud",
@@ -164,6 +236,28 @@ export const SERVICES: ServiceData[] = [
       "hosting cloud empresarial",
       "infraestructura cloud",
       "servidor dedicado España",
+    ],
+    faqs: [
+      {
+        question: "¿Qué es un servidor cloud gestionado?",
+        answer:
+          "Un servidor cloud gestionado es una infraestructura en la nube (AWS, Google Cloud o similar) donde nosotros nos encargamos de toda la configuración, seguridad, actualizaciones y monitorización. Tú solo te preocupas de tu negocio; nosotros gestionamos la tecnología.",
+      },
+      {
+        question: "¿En qué proveedores cloud trabajáis?",
+        answer:
+          "Trabajamos principalmente con Amazon Web Services (AWS) y Google Cloud Platform (GCP). También podemos configurar servidores en DigitalOcean, Hetzner o cualquier proveedor VPS según los requerimientos del proyecto.",
+      },
+      {
+        question: "¿Qué incluye el servicio de servidores cloud?",
+        answer:
+          "El servicio incluye configuración del servidor, instalación del sistema operativo y software necesario, certificados SSL, configuración de DNS y dominio, copias de seguridad automáticas, monitorización de disponibilidad y soporte ante incidencias.",
+      },
+      {
+        question: "¿Podéis migrar mi servidor actual a la nube?",
+        answer:
+          "Sí, realizamos migraciones de servidores tradicionales o infraestructuras on-premise a la nube de forma segura y sin interrupciones del servicio. Planificamos cada migración con pruebas previas para garantizar la continuidad del negocio.",
+      },
     ],
   },
 ];

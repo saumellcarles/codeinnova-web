@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 import { sectionFadeInUp, sectionHeaderFadeIn } from "../../animations/marketingVariants";
 
@@ -84,23 +84,23 @@ const PILLARS = [
 // Layout asimétrico: estadística grande a la izquierda, texto a la derecha.
 export function AboutSection() {
   return (
-    <motion.section
+    <m.section
       id="nosotros"
       className="border-b border-gray-200 bg-white py-16 md:py-24"
       {...sectionFadeInUp}
     >
       <div className="mx-auto max-w-6xl px-6 md:px-6">
         {/* Section label — estilo // como en codeinnova.com */}
-        <motion.p
+        <m.p
           className="font-mono text-xs font-semibold text-gray-400"
           {...sectionHeaderFadeIn}
         >
           <span className="text-indigo-500">// </span>Sobre nosotros
-        </motion.p>
+        </m.p>
 
         <div className="mt-8 grid gap-12 md:grid-cols-2 md:items-start md:gap-16">
           {/* Left: headline + stat + CTA */}
-          <motion.div {...sectionHeaderFadeIn}>
+          <m.div {...sectionHeaderFadeIn}>
             <h2 className="text-2xl font-bold leading-snug tracking-tight text-gray-900 md:text-3xl lg:text-4xl">
               Innovación al servicio del{" "}
               <span className="bg-gradient-to-r from-indigo-600 to-orange-500 bg-clip-text text-transparent">
@@ -123,12 +123,12 @@ export function AboutSection() {
               Consultoría gratuita
               <ArrowRightIcon className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
             </Link>
-          </motion.div>
+          </m.div>
 
           {/* Right: mission & objective cards */}
           <div className="flex flex-col gap-4">
             {PILLARS.map((p, i) => (
-              <motion.div
+              <m.div
                 key={p.title}
                 className={`rounded-2xl border p-5 ${p.accent}`}
                 initial={{ opacity: 0, x: 20 }}
@@ -141,13 +141,13 @@ export function AboutSection() {
                   <h3 className="text-sm font-bold">{p.title}</h3>
                 </div>
                 <p className="mt-2 text-sm leading-relaxed opacity-80">{p.text}</p>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
 
         {/* Stat + tech stack — ancho completo del landing, fuera del grid */}
-        <motion.div
+        <m.div
           className="mt-10 border-t border-gray-100 pt-8"
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -171,7 +171,7 @@ export function AboutSection() {
           {/* Iconos — fila a ancho completo en mobile, con margen superior */}
           <div className="mt-6 flex w-full items-center justify-between md:hidden">
             {TECH_STACK.map((tech, i) => (
-              <motion.div
+              <m.div
                 key={tech.name}
                 className="flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 bg-gray-50"
                 initial={{ opacity: 0, scale: 0.7 }}
@@ -181,7 +181,7 @@ export function AboutSection() {
                 title={tech.name}
               >
                 <tech.Icon />
-              </motion.div>
+              </m.div>
             ))}
           </div>
 
@@ -199,7 +199,7 @@ export function AboutSection() {
             <div className="h-10 w-px shrink-0 bg-gray-200" />
             <div className="flex flex-1 items-center justify-between">
               {TECH_STACK.map((tech, i) => (
-                <motion.div
+                <m.div
                   key={tech.name}
                   className="flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-gray-50 transition hover:border-gray-300 hover:bg-white hover:shadow-sm"
                   initial={{ opacity: 0, scale: 0.7 }}
@@ -209,12 +209,12 @@ export function AboutSection() {
                   title={tech.name}
                 >
                   <tech.Icon />
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>
-        </motion.div>
+        </m.div>
       </div>
-    </motion.section>
+    </m.section>
   );
 }

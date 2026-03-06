@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import { StarFilledIcon } from "@radix-ui/react-icons";
 import { sectionFadeInUp, sectionHeaderFadeIn, getCardItemFadeIn } from "../../animations/marketingVariants";
 import { SnapCarousel } from "../ui/SnapCarousel";
@@ -52,7 +52,7 @@ const TESTIMONIALS = [
 // Testimonios reales extraídos de codeinnova.com — diseño de cuadrícula asimétrica.
 export function TestimonialsSection() {
   return (
-    <motion.section
+    <m.section
       id="clientes"
       className="relative overflow-hidden bg-slate-950 py-16 md:py-24"
       {...sectionFadeInUp}
@@ -73,18 +73,18 @@ export function TestimonialsSection() {
       </div>
 
       <div className="relative mx-auto max-w-6xl px-6">
-        <motion.p className="font-mono text-xs font-semibold text-slate-500" {...sectionHeaderFadeIn}>
+        <m.p className="font-mono text-xs font-semibold text-slate-500" {...sectionHeaderFadeIn}>
           <span className="text-orange-400">// </span>CLIENTES
-        </motion.p>
+        </m.p>
 
-        <motion.header className="mt-4 max-w-xl" {...sectionHeaderFadeIn}>
+        <m.header className="mt-4 max-w-xl" {...sectionHeaderFadeIn}>
           <h2 className="text-2xl font-bold tracking-tight text-white md:text-3xl lg:text-4xl">
             Lo que dicen{" "}
             <span className="bg-gradient-to-r from-indigo-400 to-orange-400 bg-clip-text text-transparent">
               nuestros clientes
             </span>
           </h2>
-        </motion.header>
+        </m.header>
 
         {/* Mobile: carrusel de 1 tarjeta */}
         <div className="mt-8">
@@ -121,7 +121,7 @@ export function TestimonialsSection() {
         {/* Desktop: masonry columns */}
         <div className="mt-10 hidden columns-2 gap-4 lg:columns-3 md:block">
           {TESTIMONIALS.map((t, i) => (
-            <motion.article
+            <m.article
               key={`${t.name}-${t.company}`}
               className="mb-4 break-inside-avoid rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm transition hover:bg-white/10"
               {...getCardItemFadeIn(i)}
@@ -146,10 +146,10 @@ export function TestimonialsSection() {
                   <p className="text-xs text-slate-500">{t.company}</p>
                 </div>
               </div>
-            </motion.article>
+            </m.article>
           ))}
         </div>
       </div>
-    </motion.section>
+    </m.section>
   );
 }

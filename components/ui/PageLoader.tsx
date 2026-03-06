@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "motion/react";
+import { m, AnimatePresence } from "motion/react";
 
 // Spinner completo visible en todos los dispositivos.
 // Solo se muestra en cambios de ruta — nunca en la carga inicial
@@ -26,7 +26,7 @@ export function PageLoader() {
   return (
     <AnimatePresence>
       {visible && (
-        <motion.div
+        <m.div
           className="fixed inset-0 z-[200] flex items-center justify-center bg-white"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, scale: 1.01 }}
@@ -36,14 +36,14 @@ export function PageLoader() {
         >
           <div className="relative flex items-center justify-center">
             {/* Blob de fondo */}
-            <motion.div
+            <m.div
               className="absolute h-28 w-28 rounded-full bg-gradient-to-tr from-blue-500/20 to-orange-400/20 blur-xl"
               animate={{ scale: [1, 1.3, 1], opacity: [0.5, 0.8, 0.5] }}
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             />
 
             {/* Anillo exterior giratorio */}
-            <motion.svg
+            <m.svg
               className="absolute h-[88px] w-[88px]"
               viewBox="0 0 88 88"
               fill="none"
@@ -65,10 +65,10 @@ export function PageLoader() {
                 strokeDasharray="200"
                 strokeDashoffset="145"
               />
-            </motion.svg>
+            </m.svg>
 
             {/* Anillo interior giratorio inverso */}
-            <motion.svg
+            <m.svg
               className="absolute h-[104px] w-[104px] opacity-25"
               viewBox="0 0 104 104"
               fill="none"
@@ -82,10 +82,10 @@ export function PageLoader() {
                 strokeLinecap="round"
                 strokeDasharray="60 240"
               />
-            </motion.svg>
+            </m.svg>
 
             {/* Logo central */}
-            <motion.div
+            <m.div
               initial={{ scale: 0.6, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.5, ease: [0.34, 1.56, 0.64, 1] }}
@@ -98,9 +98,9 @@ export function PageLoader() {
                 className="h-12 w-12 object-contain drop-shadow-sm"
                 priority
               />
-            </motion.div>
+            </m.div>
           </div>
-        </motion.div>
+        </m.div>
       )}
     </AnimatePresence>
   );

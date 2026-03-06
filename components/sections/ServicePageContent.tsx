@@ -6,18 +6,54 @@ import { TestimonialsSection } from "./TestimonialsSection";
 import { FinalCtaSection } from "./FinalCtaSection";
 import type { ServiceData } from "../../lib/services-data";
 
+const BASE_URL = "https://codeinnova.es";
+
 interface ServicePageContentProps {
   service: ServiceData;
   serviceSchema: object;
 }
 
 export function ServicePageContent({ service, serviceSchema }: ServicePageContentProps) {
+  const serviceUrl = `${BASE_URL}/servicios/${service.slug}`;
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Inicio", item: BASE_URL },
+      { "@type": "ListItem", position: 2, name: "Servicios", item: `${BASE_URL}/servicios` },
+      { "@type": "ListItem", position: 3, name: service.title, item: serviceUrl },
+    ],
+  };
+
+  const faqSchema = service.faqs?.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: service.faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: { "@type": "Answer", text: faq.answer },
+        })),
+      }
+    : null;
+
   return (
     <PageLayout>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-[#0a1628] to-slate-950 pt-32 pb-20 md:pt-40 md:pb-28">
@@ -146,6 +182,26 @@ export function ServicePageContent({ service, serviceSchema }: ServicePageConten
           </div>
         </div>
       </section>
+
+      {/* FAQ visible */}
+      {service.faqs?.length > 0 && (
+        <section className="bg-gray-50 py-16 md:py-20">
+          <div className="mx-auto max-w-3xl px-6">
+            <p className="font-mono text-xs font-semibold text-indigo-500">{"// Preguntas frecuentes"}</p>
+            <h2 className="mt-3 text-2xl font-bold tracking-tight text-gray-900 md:text-3xl">
+              Preguntas frecuentes sobre {service.title.toLowerCase()}
+            </h2>
+            <dl className="mt-8 space-y-6">
+              {service.faqs.map((faq) => (
+                <div key={faq.question} className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+                  <dt className="text-sm font-semibold text-gray-900 md:text-base">{faq.question}</dt>
+                  <dd className="mt-2 text-sm leading-relaxed text-gray-600">{faq.answer}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </section>
+      )}
 
       <ProcessSection />
       <TestimonialsSection />

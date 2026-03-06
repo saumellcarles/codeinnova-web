@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import { sectionFadeInUp, sectionHeaderFadeIn, getCardItemFadeIn } from "../../animations/marketingVariants";
 import { SnapCarousel } from "../ui/SnapCarousel";
 
@@ -34,7 +34,7 @@ const STEPS = [
 // Sección metodología con los 3 pasos reales del proceso de codeinnova.com.
 export function ProcessSection() {
   return (
-    <motion.section
+    <m.section
       id="metodologia"
       className="relative overflow-hidden bg-gradient-to-br from-indigo-50 via-white to-violet-50/60 py-16 md:py-24"
       {...sectionFadeInUp}
@@ -46,11 +46,11 @@ export function ProcessSection() {
         <div className="absolute left-1/2 top-1/2 h-px w-full -translate-y-1/2 bg-gradient-to-r from-transparent via-indigo-100 to-transparent" />
       </div>
       <div className="relative mx-auto max-w-6xl px-6">
-        <motion.p className="font-mono text-xs font-semibold text-gray-400" {...sectionHeaderFadeIn}>
+        <m.p className="font-mono text-xs font-semibold text-gray-400" {...sectionHeaderFadeIn}>
           <span className="text-indigo-500">// </span>Nuestra metodología
-        </motion.p>
+        </m.p>
 
-        <motion.header className="mt-4 max-w-2xl" {...sectionHeaderFadeIn}>
+        <m.header className="mt-4 max-w-2xl" {...sectionHeaderFadeIn}>
           <h2 className="text-2xl font-bold tracking-tight text-gray-900 md:text-3xl lg:text-4xl">
             Metodología probada para{" "}
             <span className="bg-gradient-to-r from-indigo-600 to-orange-500 bg-clip-text text-transparent">
@@ -63,7 +63,7 @@ export function ProcessSection() {
             avance del proyecto, asegurando resultados alineados con tus
             objetivos.
           </p>
-        </motion.header>
+        </m.header>
 
         {/* Separador */}
         <div className="mt-8 h-px bg-gray-100 md:mt-12" />
@@ -91,7 +91,7 @@ export function ProcessSection() {
         {/* Desktop: grid de 3 columnas */}
         <div className="mt-8 hidden gap-6 md:mt-12 md:grid md:grid-cols-3">
           {STEPS.map((step, i) => (
-            <motion.div
+            <m.div
               key={step.num}
               className={`relative rounded-2xl border p-6 ${step.border} ${step.bg}`}
               {...getCardItemFadeIn(i)}
@@ -104,11 +104,11 @@ export function ProcessSection() {
               </div>
               <h3 className="mt-4 text-base font-bold text-gray-900">{step.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-gray-600">{step.text}</p>
-            </motion.div>
+            </m.div>
           ))}
         </div>
       </div>
-    </motion.section>
+    </m.section>
   );
 }
 

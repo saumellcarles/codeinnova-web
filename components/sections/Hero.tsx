@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import { ArrowRightIcon, CheckIcon } from "@radix-ui/react-icons";
 
 const BADGES = ["Desarrollo Web", "Aplicaciones a medida", "E-commerce", "Servidores Cloud"];
@@ -45,7 +45,7 @@ export function Hero() {
       />
 
       <div className="relative mx-auto max-w-6xl px-6 pt-28 pb-28 md:pt-36 md:pb-36">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -54,13 +54,13 @@ export function Hero() {
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" />
             Bienvenid@ a CodeInnova
           </span>
-        </motion.div>
+        </m.div>
 
-        <motion.h1
+        <m.h1
           className="mt-6 max-w-4xl text-3xl font-black uppercase leading-[1.05] tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 1, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
+          transition={{ duration: 0.5, delay: 0.05 }}
         >
           Especialistas en{" "}
           <span className="bg-gradient-to-r from-blue-400 via-indigo-300 to-orange-400 bg-clip-text text-transparent">
@@ -70,9 +70,9 @@ export function Hero() {
           <span className="bg-gradient-to-r from-blue-400 via-indigo-300 to-orange-400 bg-clip-text text-transparent">
             software
           </span>
-        </motion.h1>
+        </m.h1>
 
-        <motion.p
+        <m.p
           className="mt-6 max-w-2xl text-base leading-relaxed text-slate-400 md:text-lg"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -82,9 +82,9 @@ export function Hero() {
           propia para ofrecer soluciones seguras, escalables y de alto
           rendimiento, que simplifican procesos, potencian la productividad y
           optimizan tu entorno digital.
-        </motion.p>
+        </m.p>
 
-        <motion.div
+        <m.div
           className="mt-6 flex flex-wrap gap-2"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -99,9 +99,9 @@ export function Hero() {
               {b}
             </span>
           ))}
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -120,9 +120,9 @@ export function Hero() {
           >
             Ver servicios
           </button>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           className="mt-12 flex flex-nowrap items-center gap-4 border-t border-white/10 pt-8 text-[11px] text-slate-500 md:gap-6 md:text-xs"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -134,7 +134,7 @@ export function Hero() {
               <span>{s.label}</span>
             </div>
           ))}
-        </motion.div>
+        </m.div>
       </div>
 
       <div

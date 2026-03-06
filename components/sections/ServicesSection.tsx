@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 import { sectionFadeInUp, sectionHeaderFadeIn, getCardItemFadeIn } from "../../animations/marketingVariants";
 import { SnapCarousel } from "../ui/SnapCarousel";
@@ -71,7 +71,7 @@ const SERVICES = [
 // Tarjetas estilo glassmorphism con hover colored border.
 export function ServicesSection() {
   return (
-    <motion.section
+    <m.section
       id="servicios"
       className="relative overflow-hidden bg-slate-950 py-16 md:py-24"
       {...sectionFadeInUp}
@@ -84,11 +84,11 @@ export function ServicesSection() {
 
       <div className="relative mx-auto max-w-6xl px-6">
         {/* Section label */}
-        <motion.p className="font-mono text-xs font-semibold text-slate-500" {...sectionHeaderFadeIn}>
+        <m.p className="font-mono text-xs font-semibold text-slate-500" {...sectionHeaderFadeIn}>
           <span className="text-orange-400">// </span>NUESTROS SERVICIOS
-        </motion.p>
+        </m.p>
 
-        <motion.header className="mt-4 max-w-2xl" {...sectionHeaderFadeIn}>
+        <m.header className="mt-4 max-w-2xl" {...sectionHeaderFadeIn}>
           <h2 className="text-2xl font-bold tracking-tight text-white md:text-3xl lg:text-4xl">
             Soluciones{" "}
             <span className="bg-gradient-to-r from-indigo-400 to-orange-400 bg-clip-text text-transparent">
@@ -100,7 +100,7 @@ export function ServicesSection() {
             medida que combinan tecnología, diseño y estrategia para ayudarte a
             crecer, escalar y destacar en el entorno digital.
           </p>
-        </motion.header>
+        </m.header>
 
         {/* Mobile: carrusel de 1 tarjeta con scroll-snap */}
         <div className="mt-8">
@@ -120,6 +120,7 @@ export function ServicesSection() {
                   </div>
                   <Link
                     href={s.href}
+                    aria-label={`Más información sobre ${s.title}`}
                     className="mt-auto inline-flex items-center gap-1 text-xs font-semibold text-slate-400 transition hover:text-white"
                   >
                     Más información <ArrowRightIcon className="h-3 w-3" />
@@ -133,7 +134,7 @@ export function ServicesSection() {
         {/* Desktop: grid */}
         <div className="mt-10 hidden gap-4 md:mt-12 md:grid md:grid-cols-2 lg:grid-cols-4">
           {SERVICES.map((s, i) => (
-            <motion.article
+            <m.article
               key={s.title}
               className={`group flex flex-col gap-4 rounded-2xl border border-white/10 bg-white/5 p-6 transition duration-300 hover:bg-white/10 ${s.color}`}
               {...getCardItemFadeIn(i)}
@@ -150,14 +151,15 @@ export function ServicesSection() {
               </div>
               <Link
                 href={s.href}
+                aria-label={`Más información sobre ${s.title}`}
                 className="mt-auto inline-flex items-center gap-1 text-xs font-semibold text-slate-400 transition hover:text-white"
               >
                 Más información <ArrowRightIcon className="h-3 w-3" />
               </Link>
-            </motion.article>
+            </m.article>
           ))}
         </div>
       </div>
-    </motion.section>
+    </m.section>
   );
 }

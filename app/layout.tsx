@@ -4,6 +4,7 @@ import "@radix-ui/themes/styles.css";
 import "./globals.css";
 import Script from "next/script";
 import { PageLoader } from "../components/ui/PageLoader";
+import { MotionProvider } from "../components/ui/MotionProvider";
 
 const BASE_URL = "https://codeinnova.es";
 
@@ -149,8 +150,10 @@ export default function RootLayout({
           Saltar al contenido principal
         </a>
         <Theme appearance="light" accentColor="indigo" radius="large" scaling="100%">
-          <PageLoader />
-          {children}
+          <MotionProvider>
+            <PageLoader />
+            {children}
+          </MotionProvider>
         </Theme>
         <Script
           src="//code.tidio.co/pfkcjjg4h0abuxcb95ahb4hsuigjulv2.js"
